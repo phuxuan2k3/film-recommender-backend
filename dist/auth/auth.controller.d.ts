@@ -6,4 +6,7 @@ export declare class AuthController {
     create(userData: CreateUserDto): Promise<{
         access_token: string;
     }>;
+    register(userData: CreateUserDto): Promise<{
+        message: string;
+    }>;
 }

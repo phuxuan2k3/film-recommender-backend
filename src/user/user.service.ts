@@ -2,23 +2,20 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from 'src/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { User } from './entities/user.entity';
+import { UserEntity } from './entities/user.entity';
 import * as bcryptjs from 'bcryptjs';
+import { ProfileUser } from './dto/profile-user.dto';
 
 @Injectable()
 export class UserService {
   constructor(private prisma: PrismaService) {}
 
-  findOneByID(arg0: number) {
-    throw new Error('Method not implemented.');
+  async findOneByID(id: number): Promise<ProfileUser | null> {
+    const user = await this.prisma.user.findUnique({ where: { id } });
+    return new ProfileUser(user);
   }
 
   async create(dataInfo: CreateUserDto): Promise<{ message: string }> {
-    const existingUser = await this.findOneByEmail(dataInfo.email);
-    if (existingUser) {
-      throw new HttpException('Email is already used!', HttpStatus.BAD_REQUEST);
-    }
-
     const hashedPassword = await bcryptjs.hash(dataInfo.password, 10);
     const newData = new CreateUserDto({
       ...dataInfo,
@@ -35,7 +32,7 @@ export class UserService {
     return `This action returns all user`;
   }
 
-  async findOneByEmail(email: string): Promise<User | null> {
+  async findOneByEmail(email: string): Promise<UserEntity | null> {
     return await this.prisma.user.findUnique({ where: { email } });
   }
 

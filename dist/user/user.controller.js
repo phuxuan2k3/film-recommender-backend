@@ -16,13 +16,9 @@ exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
 const user_service_1 = require("./user.service");
 const update_user_dto_1 = require("./dto/update-user.dto");
-const create_user_dto_1 = require("./dto/create-user.dto");
 let UserController = class UserController {
     constructor(userService) {
         this.userService = userService;
-    }
-    async create(userData) {
-        return this.userService.create(userData);
     }
     findAll() {
         return this.userService.findAll();
@@ -38,13 +34,6 @@ let UserController = class UserController {
     }
 };
 exports.UserController = UserController;
-__decorate([
-    (0, common_1.Post)('register'),
-    __param(0, (0, common_1.Body)(new common_1.ValidationPipe({ whitelist: true }))),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
-    __metadata("design:returntype", Promise)
-], UserController.prototype, "create", null);
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
-class User {
+exports.UserEntity = void 0;
+class UserEntity {
 }
-exports.User = User;
+exports.UserEntity = UserEntity;
 //# sourceMappingURL=user.entity.js.map

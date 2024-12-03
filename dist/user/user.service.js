@@ -14,18 +14,16 @@ const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma.service");
 const create_user_dto_1 = require("./dto/create-user.dto");
 const bcryptjs = require("bcryptjs");
+const profile_user_dto_1 = require("./dto/profile-user.dto");
 let UserService = class UserService {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    findOneByID(arg0) {
-        throw new Error('Method not implemented.');
+    async findOneByID(id) {
+        const user = await this.prisma.user.findUnique({ where: { id } });
+        return new profile_user_dto_1.ProfileUser(user);
     }
     async create(dataInfo) {
-        const existingUser = await this.findOneByEmail(dataInfo.email);
-        if (existingUser) {
-            throw new common_1.HttpException('Email is already used!', common_1.HttpStatus.BAD_REQUEST);
-        }
         const hashedPassword = await bcryptjs.hash(dataInfo.password, 10);
         const newData = new create_user_dto_1.CreateUserDto({
             ...dataInfo,

@@ -19,17 +19,25 @@ let AuthService = class AuthService {
         this.userService = userService;
         this.jwtService = jwtService;
     }
-    async signIn(email, password) {
-        const user = await this.userService.findOneByEmail(email);
+    async signIn(userData) {
+        const user = await this.userService.findOneByEmail(userData.email);
         if (!user) {
             throw new common_1.HttpException('Invalid credentials', common_1.HttpStatus.UNAUTHORIZED);
         }
-        const isPasswordValid = await bcryptjs.compare(password, user.password);
+        const isPasswordValid = await bcryptjs.compare(userData.password, user.password);
         if (!isPasswordValid) {
             throw new common_1.HttpException('Invalid credentials', common_1.HttpStatus.UNAUTHORIZED);
         }
         const payload = { sub: user.id, email: user.email };
         return { access_token: await this.jwtService.signAsync(payload) };
+    }
+    async signUp(userData) {
+        const existingUser = await this.userService.findOneByEmail(userData.email);
+        if (existingUser) {
+            throw new common_1.HttpException('Email is already used!', common_1.HttpStatus.BAD_REQUEST);
+        }
+        await this.userService.create(userData);
+        return { message: 'User registered successfully!' };
     }
 };
 exports.AuthService = AuthService;
