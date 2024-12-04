@@ -3,8 +3,8 @@ import {
   Get,
   Request,
   UnauthorizedException,
+  NotFoundException,
 } from '@nestjs/common';
-import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { ProfileUser } from 'src/user/dto/profile-user.dto';
 import { UserService } from 'src/user/user.service';
 

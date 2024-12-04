@@ -3,8 +3,10 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { UserModule } from 'src/user/user.module';
 import { JwtModule } from '@nestjs/jwt';
-import { APP_GUARD } from '@nestjs/core';
-import { AuthGuard } from './auth.guard';
+// import { APP_GUARD } from '@nestjs/core';
+// import { AuthGuard } from './auth.guard';
+import { FirebaseAdminService } from 'config/firebase';
+import { firebaseConfig } from 'config/firebase.config';
 
 @Module({
   imports: [
@@ -18,9 +20,14 @@ import { AuthGuard } from './auth.guard';
   controllers: [AuthController],
   providers: [
     AuthService,
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: AuthGuard,
+    // },
+    FirebaseAdminService,
     {
-      provide: APP_GUARD,
-      useClass: AuthGuard,
+      provide: 'FIREBASE_CONFIG',
+      useValue: firebaseConfig,
     },
   ],
   exports: [AuthService],
