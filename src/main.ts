@@ -1,15 +1,18 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import helmet from 'helmet';
+import { ValidationPipe, VersioningType } from '@nestjs/common';
+import * as compression from 'compression'
+
+const PORT = parseInt(process.env.PORT, 10) || 3000
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({
-    origin: '*',
-    methods: 'GET, HEAD, PUT, POST, DELETE, OPTIONS, PATCH',
-    credentials: true,
-    allowedHeaders:
-      'Origin, X-Requested-With, Content-Type, Accept,Authorization, Authentication, Access-control-allow-credentials, Access-control-allow-headers, Access-control-allow-methods, Access-control-allow-origin, User-Agent, Referer, Accept-Encoding, Accept-Language, Access-Control-Request-Headers, Cache-Control, Pragma',
-  });
-  await app.listen(process.env.PORT ?? 3000);
+  app.enableCors({ origin: '*' });
+  app.useGlobalPipes(new ValidationPipe({}))
+  app.enableVersioning({ type: VersioningType.URI })
+  app.use(helmet())
+  app.use(compression())
+  await app.listen(PORT);
 }
 bootstrap();
