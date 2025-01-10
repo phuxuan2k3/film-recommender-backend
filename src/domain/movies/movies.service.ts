@@ -11,16 +11,20 @@ export class MoviesService {
     ) { }
 
     async all(): Promise<Movie[]> {
-        return await this.movieModel.find().exec();
+        return await this.movieModel.find({}).limit(10).exec();
     }
 
     async querySearch(searchParam: SearchParam): Promise<Movie[]> {
-        const { name, includeAdult, page, perPage } = searchParam;
+        const { name, include_adult: includeAdult, page, per_page: perPage, year } = searchParam;
+        const query: any = {};
+        if (name != null) query.name = { $regex: name, $options: 'i' };
+        if (includeAdult != null) query.includeAdult = includeAdult;
+        if (year != null) query.year = {
+            $gte: new Date(year, 0, 1),
+            $lte: new Date(year, 11, 31)
+        };
         const movies = await this.movieModel
-            .find({
-                title: { $regex: name, $options: 'i' },
-                adult: includeAdult,
-            })
+            .find()
             .skip((page - 1) * perPage)
             .limit(perPage)
             .exec();

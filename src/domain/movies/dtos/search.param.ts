@@ -1,12 +1,22 @@
 import { Type } from 'class-transformer';
-import { IsBoolean, IsBooleanString, IsNumber, IsNumberString, IsString, Max, Min } from 'class-validator'
+import { IsBooleanString, IsNumber, IsOptional, IsString, Max, Min, MinLength } from 'class-validator'
 
 export class SearchParam {
+    @IsOptional()
     @IsString()
+    @MinLength(3)
     name: string;
 
+    @IsOptional()
     @IsBooleanString()
-    includeAdult: boolean;
+    include_adult: boolean;
+
+    @IsOptional()
+    @IsNumber()
+    @Type(() => Number)
+    @Min(1900)
+    @Max(2025)
+    year: number;
 
     @IsNumber()
     @Type(() => Number)
@@ -18,5 +28,5 @@ export class SearchParam {
     @Type(() => Number)
     @Min(1)
     @Max(50)
-    perPage: number;
+    per_page: number;
 }

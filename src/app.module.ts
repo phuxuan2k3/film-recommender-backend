@@ -7,6 +7,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { MoviesModule } from './domain/movies/movies.module';
+import { UsersModule } from './domain/users/users.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { MoviesModule } from './domain/movies/movies.module';
     AuthModule,
     ProfileModule,
     MoviesModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
