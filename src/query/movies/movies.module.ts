@@ -10,9 +10,6 @@ import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from 'src/common/const';
     MongooseModule.forFeature([
       { name: Movie.name, schema: MovieSchema },
     ], MOVIES_CONNECTION_NAME),
-    MongooseModule.forFeature([
-
-    ], REST_CONNECTION_NAME)
   ],
   providers: [MoviesService],
   controllers: [MoviesController]
