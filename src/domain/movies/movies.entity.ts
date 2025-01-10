@@ -1,13 +1,11 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { HydratedDocument, Types } from 'mongoose'
 import { Genre } from '../genres/genre.entity';
-import { Collection } from '../collections/collection.entity';
 
 export type MovieDocument = HydratedDocument<Movie>
 
 @Schema({ collection: 'movies', timestamps: true })
 export class Movie {
-
     @Prop()
     tmdb_id: number;
 
@@ -17,8 +15,20 @@ export class Movie {
     @Prop()
     backdrop_path: string;
 
-    @Prop({ type: Types.ObjectId, ref: 'collections' })
-    belongs_to_collection: Collection; // entity
+    @Prop({
+        type: {
+            id: Number,
+            name: String,
+            poster_path: String,
+            backdrop_path: String,
+        },
+    })
+    belongs_to_collection: {
+        id: number;
+        name: string;
+        poster_path: string;
+        backdrop_path: string;
+    };
 
     @Prop()
     budget: number;
@@ -234,4 +244,4 @@ export class Movie {
     reviews: string[];
 }
 
-export const UserSchema = SchemaFactory.createForClass(Movie)
+export const MovieSchema = SchemaFactory.createForClass(Movie)

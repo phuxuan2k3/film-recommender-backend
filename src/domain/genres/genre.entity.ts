@@ -9,4 +9,4 @@ export class Genre {
     name: string;
 }
 
-export const CatSchema = SchemaFactory.createForClass(Genre);
+export const GerneSchema = SchemaFactory.createForClass(Genre);
