@@ -6,15 +6,22 @@ import { ProfileModule } from './profile/profile.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ThrottlerModule } from '@nestjs/throttler';
-import { MoviesModule } from './domain/movies/movies.module';
-import { UsersModule } from './domain/users/users.module';
+import { MoviesModule } from './query/movies/movies.module';
+import { UsersModule } from './query/users/users.module';
+import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from './common/const';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     ThrottlerModule.forRoot([{ ttl: 60, limit: 10, }]),
-    MongooseModule.forRoot(process.env.MONGO_URL, {
-      dbName: process.env.MONGO_DB || "TMDB",
+
+    MongooseModule.forRoot(process.env.MONGO_URL_MOVIES, {
+      dbName: process.env.MONGO_DB_MOVIES || "TMDB",
+      connectionName: MOVIES_CONNECTION_NAME
+    }),
+    MongooseModule.forRoot(process.env.MONGO_URL_REST, {
+      dbName: process.env.MONGO_DB_REST || "TMDB",
+      connectionName: REST_CONNECTION_NAME
     }),
 
     AuthModule,

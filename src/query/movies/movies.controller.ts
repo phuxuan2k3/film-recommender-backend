@@ -1,6 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { MoviesService } from './movies.service';
-import { SearchParam } from './dtos/search.param';
+import { MoviesService } from './services/movies.service';
+import { SearchParam } from './params/search.param';
 
 @Controller('movies')
 export class MoviesController {

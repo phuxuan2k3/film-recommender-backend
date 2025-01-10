@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { SearchParam } from './dtos/search.param';
-import { Movie, MovieDocument } from './movies.entity';
+import { SearchParam } from '../params/search.param';
+import { Movie, MovieDocument } from '../schemas/movies.schema';
 
 @Injectable()
 export class MoviesService {
@@ -11,7 +11,10 @@ export class MoviesService {
     ) { }
 
     async all(): Promise<Movie[]> {
-        return await this.movieModel.find({}).limit(10).exec();
+        const res = await this.movieModel.find({}).limit(10).transform((doc) => {
+            return doc;
+        }).exec();
+        return res;
     }
 
     async querySearch(searchParam: SearchParam): Promise<Movie[]> {

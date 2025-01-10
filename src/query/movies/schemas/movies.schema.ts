@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { HydratedDocument, Types } from 'mongoose'
-import { Genre } from '../genres/genre.entity';
+import { Genre } from '../../genres/genre.entity';
 
 export type MovieDocument = HydratedDocument<Movie>
 
-@Schema({ collection: 'movies', timestamps: true })
+@Schema({ collection: 'movies', timestamps: true, strict: true })
 export class Movie {
     @Prop()
     adult: boolean;
