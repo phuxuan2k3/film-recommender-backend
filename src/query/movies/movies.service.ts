@@ -8,8 +8,8 @@ import { MovieSmallPresenter } from './response/movies-small.presenter';
 import { TrendingParam } from './request/trending.param';
 import { MoviesTrendingDay } from './schemas/movies-trending-day.schema';
 import { MoviesTrendingWeek } from './schemas/movies-trending-week.schema';
-import { PagingQuery } from '../common/paging.query';
-import { PagingResult } from '../common/paging.result';
+import { PagingQuery } from '../common/dto/paging.query';
+import { PagingResult } from '../common/dto/paging.result';
 import { totalPage } from '../common/helper/total-page';
 import { MoviesPopular } from './schemas/movies-popular.schema';
 import { getYouTubeLink } from '../common/helper/link';
@@ -134,5 +134,14 @@ export class MoviesService {
             .lean();
         if (doc == null) return null;
         return doc;
+    }
+
+    async movieCompositionSmall(id: number[]): Promise<MovieSmallPresenter[]> {
+        const docs = await this.movieModel
+            .find({
+                id: { $in: id }
+            }, MovieSmallPresenter.getProjection())
+            .lean();
+        return docs;
     }
 }

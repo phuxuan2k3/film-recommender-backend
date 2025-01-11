@@ -1,10 +1,10 @@
 export class MovieSmallPresenter {
+    id: number;
     tmdb_id: number;
     adult: boolean;
     backdrop_path: string;
     categories: string[];
     // genre_ids: number[];
-    id: number;
     // media_type: string;
     original_language: string;
     original_title: string;

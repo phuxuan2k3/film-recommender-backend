@@ -7,6 +7,7 @@ import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from 'src/common/const';
 import { MoviesTrendingDay, MoviesTrendingDaySchema } from './schemas/movies-trending-day.schema';
 import { MoviesTrendingWeek, MoviesTrendingWeekSchema } from './schemas/movies-trending-week.schema';
 import { MoviesPopular, MoviesPopularSchema } from './schemas/movies-popular.schema';
+import { MoviesExportService } from './exports/movie-export.service';
 
 @Module({
   imports: [
@@ -19,7 +20,11 @@ import { MoviesPopular, MoviesPopularSchema } from './schemas/movies-popular.sch
       { name: MoviesPopular.name, schema: MoviesPopularSchema }
     ], REST_CONNECTION_NAME),
   ],
-  providers: [MoviesService],
-  controllers: [MoviesController]
+  providers: [
+    MoviesService,
+    MoviesExportService
+  ],
+  controllers: [MoviesController],
+  exports: [MoviesExportService]
 })
 export class MoviesModule { }

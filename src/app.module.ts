@@ -9,6 +9,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
 import { MoviesModule } from './query/movies/movies.module';
 import { UsersModule } from './query/users/users.module';
 import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from './common/const';
+import { ReviewsModule } from './query/reviews/reviews.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from './common/const';
     ProfileModule,
     MoviesModule,
     UsersModule,
+    ReviewsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

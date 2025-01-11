@@ -2,7 +2,7 @@ import { Controller, Get, Param, Query } from '@nestjs/common';
 import { MoviesService } from './movies.service';
 import { SearchQuery } from './request/search.query';
 import { TrendingParam } from './request/trending.param';
-import { PagingQuery } from '../common/paging.query';
+import { PagingQuery } from '../common/dto/paging.query';
 
 @Controller('movies')
 export class MoviesController {
