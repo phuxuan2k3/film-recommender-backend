@@ -49,7 +49,7 @@ export class MoviesService {
         };
     }
 
-    async getTrendingMovies(param: TrendingParam, query: PagingQuery): Promise<MovieSmallPresenter[]> {
+    async getTrendingMovies(param: TrendingParam, query: PagingQuery): Promise<PagingResult<MovieSmallPresenter>> {
         const { time_window } = param;
         const { page, limit } = query;
         console.log(time_window, page, limit);
@@ -59,7 +59,14 @@ export class MoviesService {
                 .skip((page - 1) * limit)
                 .limit(limit)
                 .lean();
-            return docs;
+            const total_results = await this.moviesTrendingDayModel.countDocuments();
+            const total_pages = totalPage(total_results, limit);
+            return {
+                page,
+                results: docs,
+                total_results,
+                total_pages
+            };
         }
         else if (time_window === "week") {
             const docs = await this.moviesTrendingWeekModel
@@ -67,7 +74,14 @@ export class MoviesService {
                 .skip((page - 1) * limit)
                 .limit(limit)
                 .lean();
-            return docs;
+            const total_results = await this.moviesTrendingWeekModel.countDocuments();
+            const total_pages = totalPage(total_results, limit);
+            return {
+                page,
+                results: docs,
+                total_results,
+                total_pages
+            };
         }
         return null;
     }
