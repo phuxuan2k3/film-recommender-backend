@@ -118,4 +118,39 @@ export class UsersActionService {
         const movieIds = user.watchlist_movies_id.map((item) => item.movie_id);
         return this.moviesExportService.getMovieByIds(movieIds);
     }
+
+    async addHistory(user_id: string, movie_id: number): Promise<void> {
+        const now = new Date();
+        await this.userModel.updateOne(
+            { id: user_id },
+            {
+                $push: {
+                    history_movies_id: {
+                        movie_id,
+                        created_at: now.toISOString()
+                    }
+                }
+            }
+        );
+    }
+
+    async removeHistory(user_id: string, movie_id: number): Promise<void> {
+        await this.userModel.updateOne(
+            { id: user_id },
+            {
+                $pull: {
+                    history_movies_id: {
+                        movie_id
+                    }
+                }
+            }
+        );
+    }
+
+    async getHistoryMovies(user_id: string): Promise<MovieSmallPresenter[]> {
+        const user = await this.userModel.findOne({ id: user_id }).exec();
+        if (!user) return null;
+        const movieIds = user.history_movies_id.map((item) => item.movie_id);
+        return this.moviesExportService.getMovieByIds(movieIds);
+    }
 }

@@ -15,7 +15,13 @@ export class ReviewsController {
 
     @Post('add/:movie_id')
     async createReview(@Param() param: { movie_id: number }, @Body() body: ReviewBody) {
-        return this.reviewsService.createReview(param.movie_id, body);
+        const userInfoRating = {
+            name: 'John Doe',
+            email: 'john@gmail.com',
+            avatar_path: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',
+            rating: '5'
+        };
+        return this.reviewsService.createReview(userInfoRating, param.movie_id, body);
     }
 
     @Post('delete/:review_id')

@@ -29,13 +29,6 @@ export class User {
     @Prop()
     avatar_path: string;
 
-    @Prop()
-    username: string;
-
-    // omit password
-    // @Prop()
-    // password: string;
-
     @Prop({
         type: [{
             movie_id: Number,
@@ -65,6 +58,15 @@ export class User {
         created_at: String
     }])
     watchlist_movies_id: {
+        movie_id: number;
+        created_at: string;
+    }[];
+
+    @Prop([{
+        movie_id: Number,
+        created_at: String
+    }])
+    history_movies_id: {
         movie_id: number;
         created_at: string;
     }[];

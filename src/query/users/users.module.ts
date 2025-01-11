@@ -3,8 +3,9 @@ import { UsersController } from './users.controller';
 import { UsersActionService } from './services/users-aggregate.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from './schemas/users.schema';
-import { UsersPersonalService } from './services/users-personal.service';
+import { UsersService } from './services/users.service';
 import { MoviesModule } from '../movies/movies.module';
+import { UsersAccountService } from './exports/users-account.service';
 
 @Module({
   imports: [
@@ -16,7 +17,11 @@ import { MoviesModule } from '../movies/movies.module';
   controllers: [UsersController],
   providers: [
     UsersActionService,
-    UsersPersonalService,
+    UsersService,
+    UsersAccountService,
+  ],
+  exports: [
+    UsersAccountService,
   ]
 })
 export class UsersModule { }
