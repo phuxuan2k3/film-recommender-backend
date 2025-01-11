@@ -1,7 +1,6 @@
 import { IsString, IsIn } from 'class-validator';
-import { PagingParam } from 'src/query/common/paging.param';
 
-export class TrendingParam extends PagingParam {
+export class TrendingParam {
     @IsString()
     @IsIn(['day', 'week'])
     time_window: string;

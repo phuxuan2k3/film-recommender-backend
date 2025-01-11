@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { SearchParam } from './params/search.param';
+import { SearchQuery } from './request/search.query';
 import { Movie } from './schemas/movies.schema';
 import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from 'src/common/const';
 import { MovieSmallPresenter } from './presenter/movies-small.presenter';
-import { TrendingParam } from './params/trending.param';
+import { TrendingParam } from './request/trending.param';
 import { MoviesTrendingDay } from './schemas/movies-trending-day.schema';
 import { MoviesTrendingWeek } from './schemas/movies-trending-week.schema';
+import { PagingQuery } from '../common/paging.query';
 
 @Injectable()
 export class MoviesService {
@@ -22,7 +23,7 @@ export class MoviesService {
         return docs;
     }
 
-    async querySearch(searchParam: SearchParam): Promise<MovieSmallPresenter[]> {
+    async querySearch(searchParam: SearchQuery): Promise<MovieSmallPresenter[]> {
         const { query, include_adult: includeAdult, page, limit, year } = searchParam;
         const queryObj: any = {};
         if (query != null) queryObj.name = { $regex: query, $options: 'i' };
@@ -39,8 +40,10 @@ export class MoviesService {
         return movies;
     }
 
-    async getTrendingMovies(param: TrendingParam): Promise<MovieSmallPresenter[]> {
-        const { time_window, page, limit } = param;
+    async getTrendingMovies(param: TrendingParam, query: PagingQuery): Promise<MovieSmallPresenter[]> {
+        const { time_window } = param;
+        const { page, limit } = query;
+        console.log(time_window, page, limit);
         if (time_window === "day") {
             const docs = await this.moviesTrendingDayModel
                 .find({}, MovieSmallPresenter.getProjection())

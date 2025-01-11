@@ -1,7 +1,8 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { MoviesService } from './movies.service';
-import { SearchParam } from './params/search.param';
-import { TrendingParam } from './params/trending.param';
+import { SearchQuery } from './request/search.query';
+import { TrendingParam } from './request/trending.param';
+import { PagingQuery } from '../common/paging.query';
 
 @Controller('movies')
 export class MoviesController {
@@ -13,12 +14,12 @@ export class MoviesController {
     }
 
     @Get('search')
-    async querySearch(@Query() searchParam: SearchParam) {
-        return await this.moviesService.querySearch(searchParam);
+    async querySearch(@Query() query: SearchQuery) {
+        return await this.moviesService.querySearch(query);
     }
 
     @Get('trending/:time_window')
-    async getTrendingMovies(@Param() param: TrendingParam) {
-        return await this.moviesService.getTrendingMovies(param);
+    async getTrendingMovies(@Param() param: TrendingParam, @Query() query: PagingQuery) {
+        return await this.moviesService.getTrendingMovies(param, query);
     }
 }

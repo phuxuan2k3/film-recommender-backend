@@ -1,8 +1,8 @@
 import { Type } from 'class-transformer';
 import { IsBooleanString, IsNumber, IsOptional, IsString, Max, Min } from 'class-validator'
-import { PagingParam } from 'src/query/common/paging.param';
+import { PagingQuery as PagingQuery } from 'src/query/common/paging.query';
 
-export class SearchParam extends PagingParam {
+export class SearchQuery extends PagingQuery {
     @IsString()
     query: string;
 
