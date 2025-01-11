@@ -250,7 +250,7 @@ export class Movie {
         name: string;
     }[];
 
-    @Prop([String])
+    @Prop({ type: [String], select: false })
     reviews: string[];
 }
 

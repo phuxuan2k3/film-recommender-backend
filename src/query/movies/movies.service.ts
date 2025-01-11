@@ -53,7 +53,6 @@ export class MoviesService {
     async getTrendingMovies(param: TrendingParam, query: PagingQuery): Promise<PagingResult<MovieSmallPresenter>> {
         const { time_window } = param;
         const { page, limit } = query;
-        console.log(time_window, page, limit);
         if (time_window === "day") {
             const docs = await this.moviesTrendingDayModel
                 .find({}, MovieSmallPresenter.getProjection())
@@ -127,5 +126,13 @@ export class MoviesService {
         });
         const movieTrailerResult = movieTrailer.filter((m) => m != null);
         return movieTrailerResult;
+    }
+
+    async getMovieDetail(id: number): Promise<Movie> {
+        const doc = await this.movieModel
+            .findOne({ id: id })
+            .lean();
+        if (doc == null) return null;
+        return doc;
     }
 }

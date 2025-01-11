@@ -23,10 +23,18 @@ export class MoviesController {
         return await this.moviesService.getTrendingMovies(param, query);
     }
 
-
+    @Get('latest-trailers')
+    async getLatestTrailers(@Query() query: PagingQuery) {
+        return await this.moviesService.getPopularMovieLatestTrailers(query);
+    }
 
     @Get('popular')
     async getPopularMovies(@Query() query: PagingQuery) {
         return await this.moviesService.getPopularMovies(query);
+    }
+
+    @Get(':id')
+    async getMovieDetail(@Param('id') id: number) {
+        return await this.moviesService.getMovieDetail(id);
     }
 }
