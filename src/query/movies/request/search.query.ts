@@ -3,6 +3,7 @@ import { IsBooleanString, IsNumber, IsOptional, IsString, Max, Min } from 'class
 import { PagingQuery as PagingQuery } from 'src/query/common/paging.query';
 
 export class SearchQuery extends PagingQuery {
+    @IsOptional()
     @IsString()
     query: string;
 

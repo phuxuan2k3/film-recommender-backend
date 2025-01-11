@@ -6,6 +6,7 @@ import { Movie, MovieSchema } from './schemas/movies.schema';
 import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from 'src/common/const';
 import { MoviesTrendingDay, MoviesTrendingDaySchema } from './schemas/movies-trending-day.schema';
 import { MoviesTrendingWeek, MoviesTrendingWeekSchema } from './schemas/movies-trending-week.schema';
+import { MoviesPopular, MoviesPopularSchema } from './schemas/movies-popular.schema';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { MoviesTrendingWeek, MoviesTrendingWeekSchema } from './schemas/movies-t
     ], MOVIES_CONNECTION_NAME),
     MongooseModule.forFeature([
       { name: MoviesTrendingDay.name, schema: MoviesTrendingDaySchema },
-      { name: MoviesTrendingWeek.name, schema: MoviesTrendingWeekSchema }
+      { name: MoviesTrendingWeek.name, schema: MoviesTrendingWeekSchema },
+      { name: MoviesPopular.name, schema: MoviesPopularSchema }
     ], REST_CONNECTION_NAME),
   ],
   providers: [MoviesService],

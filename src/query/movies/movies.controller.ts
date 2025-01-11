@@ -22,4 +22,11 @@ export class MoviesController {
     async getTrendingMovies(@Param() param: TrendingParam, @Query() query: PagingQuery) {
         return await this.moviesService.getTrendingMovies(param, query);
     }
+
+
+
+    @Get('popular')
+    async getPopularMovies(@Query() query: PagingQuery) {
+        return await this.moviesService.getPopularMovies(query);
+    }
 }

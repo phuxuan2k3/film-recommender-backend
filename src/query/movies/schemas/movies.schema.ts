@@ -102,8 +102,8 @@ export class Movie {
         name: string;
     }[];
 
-    @Prop({ type: Date })
-    release_date: Date;
+    @Prop()
+    release_date: string;
 
     @Prop()
     revenue: number;
