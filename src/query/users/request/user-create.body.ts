@@ -1,6 +1,6 @@
-import { IsString } from "class-validator";
+import { IsEmail, IsPhoneNumber, IsString } from "class-validator";
 
-export class UserCreateParam {
+export class UserCreateBody {
     @IsString()
     first_name: string;
 
@@ -8,6 +8,7 @@ export class UserCreateParam {
     last_name: string;
 
     @IsString()
+    @IsEmail()
     email: string;
 
     @IsString()

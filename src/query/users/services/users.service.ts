@@ -6,7 +6,7 @@ import { Model } from 'mongoose';
 import { PagingQuery } from 'src/query/common/dto/paging.query';
 import { PagingResult } from 'src/query/common/dto/paging.result';
 import { UserSmallPresenter } from '../response/user-small.presenter';
-import { UserUpdateParam } from '../request/user-update.param';
+import { UserUpdateBody } from '../request/user-update.body';
 
 @Injectable()
 export class UsersService {
@@ -36,7 +36,7 @@ export class UsersService {
         };
     }
 
-    async update(param: UserUpdateParam): Promise<void> {
+    async update(param: UserUpdateBody): Promise<void> {
         await this.userModel.updateOne({ id: param.id }, param);
     }
 

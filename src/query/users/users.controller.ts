@@ -1,6 +1,10 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { UsersActionService } from './services/users-aggregate.service';
 import { UsersService } from './services/users.service';
+import { CreateUserDto } from 'src/user/dto/create-user.dto';
+import { UserCreateBody } from './request/user-create.body';
+import { UsersAccountService } from './exports/users-account.service';
+import { UserUpdateBody } from './request/user-update.body';
 
 // todo: get users from token
 const user_id = "abc";
@@ -9,12 +13,29 @@ const user_id = "abc";
 export class UsersController {
     constructor(
         private readonly usersAggregateService: UsersActionService,
-        private readonly userInfoService: UsersService
+        private readonly userInfoService: UsersService,
+        private readonly usersAccountService: UsersAccountService
     ) { }
 
     @Get(':user_id')
     async getUser() {
         await this.userInfoService.getDetail(user_id);
+    }
+
+    // Todo: Test route 
+    @Post('create')
+    async createUser(@Body() body: UserCreateBody) {
+        return await this.usersAccountService.create(body);
+    }
+
+    @Post('update')
+    async updateUser(@Body() body: UserUpdateBody) {
+        await this.userInfoService.update(body);
+    }
+
+    @Post('delete/:user_id')
+    async deleteUser(@Param() param: { user_id: string }) {
+        await this.userInfoService.delete(param.user_id);
     }
 
     @Post('rating/add/:movie_id')

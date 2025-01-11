@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Review, ReviewDocument } from './schemas/reviews.schema';
 import { Model } from 'mongoose';
 import { REST_CONNECTION_NAME } from 'src/common/const';
-import { ReviewBody } from './request/review.body';
+import { AddReviewBody } from './request/add-review.body';
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
@@ -21,7 +21,7 @@ export class ReviewsService {
         email: string,
         avatar_path: string,
         rating: string
-    }, movie_id: number, body: ReviewBody): Promise<{ id: string }> {
+    }, movie_id: number, body: AddReviewBody): Promise<{ id: string }> {
         const created_at = new Date().toISOString();
         const id = uuidv4();
         await this.reviewModel.create({
@@ -41,6 +41,6 @@ export class ReviewsService {
     }
 
     async deleteReview(review_id: string): Promise<void> {
-        await this.reviewModel.findByIdAndDelete(review_id);
+        await this.reviewModel.deleteOne({ id: review_id });
     }
 }

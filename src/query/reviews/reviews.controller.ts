@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ReviewsService } from './reviews.service';
-import { ReviewBody } from './request/review.body';
+import { AddReviewBody } from './request/add-review.body';
+import { AddReviewParam } from './request/add-review.param';
 
 @Controller('reviews')
 export class ReviewsController {
@@ -14,7 +15,7 @@ export class ReviewsController {
     }
 
     @Post('add/:movie_id')
-    async createReview(@Param() param: { movie_id: number }, @Body() body: ReviewBody) {
+    async createReview(@Param() param: AddReviewParam, @Body() body: AddReviewBody) {
         const userInfoRating = {
             name: 'John Doe',
             email: 'john@gmail.com',
