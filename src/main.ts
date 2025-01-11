@@ -10,5 +10,6 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({}))
   app.enableVersioning({ type: VersioningType.URI })
   await app.listen(port);
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
