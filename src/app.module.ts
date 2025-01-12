@@ -6,11 +6,12 @@ import { ProfileModule } from './profile/profile.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ThrottlerModule } from '@nestjs/throttler';
-import { MoviesModule } from './query/movies/movies.module';
-import { UsersModule } from './query/users/users.module';
+import { MoviesModule } from './domain/movies/movies.module';
+import { UsersModule } from './domain/users/users.module';
 import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from './common/const';
-import { ReviewsModule } from './query/reviews/reviews.module';
-import { GenresModule } from './query/genres/genres.module';
+import { ReviewsModule } from './domain/reviews/reviews.module';
+import { GenresModule } from './domain/genres/genres.module';
+import { PeopleModule } from './domain/people/people.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { GenresModule } from './query/genres/genres.module';
     UsersModule,
     ReviewsModule,
     GenresModule,
+    PeopleModule,
   ],
   controllers: [AppController],
   providers: [AppService],

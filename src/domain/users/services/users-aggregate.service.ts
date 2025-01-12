@@ -3,8 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { User } from '../schemas/users.schema';
 import { REST_CONNECTION_NAME } from 'src/common/const';
 import { Model } from 'mongoose';
-import { MoviesExportService } from 'src/query/movies/exports/movie-export.service';
-import { MovieSmallPresenter } from 'src/query/movies/response/movies-small.presenter';
+import { MoviesExportService } from 'src/domain/movies/exports/movie-export.service';
+import { MovieSmallPresenter } from 'src/domain/movies/response/movies-small.presenter';
 
 @Injectable()
 export class UsersActionService {

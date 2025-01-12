@@ -3,8 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { User } from '../schemas/users.schema';
 import { REST_CONNECTION_NAME } from 'src/common/const';
 import { Model } from 'mongoose';
-import { PagingQuery } from 'src/query/common/dto/paging.query';
-import { PagingResult } from 'src/query/common/dto/paging.result';
+import { PagingQuery } from 'src/domain/common/dto/paging.query';
+import { PagingResult } from 'src/domain/common/dto/paging.result';
 import { UserSmallPresenter } from '../response/user-small.presenter';
 import { UserUpdateBody } from '../request/user-update.body';
 

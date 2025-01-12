@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
 import { IsBooleanString, IsNumber, IsOptional, IsString, Max, Min } from 'class-validator'
-import { PagingQuery as PagingQuery } from 'src/query/common/dto/paging.query';
+import { PagingQuery as PagingQuery } from 'src/domain/common/dto/paging.query';
 
 export class SearchQuery extends PagingQuery {
     @IsOptional()
