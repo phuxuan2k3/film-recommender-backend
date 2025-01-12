@@ -1,4 +1,4 @@
-export class PeopleMediumPresenter {
+export class PeopleSmallPresenter {
     id: number;
     tmdb_id: number;
     adult: boolean;

@@ -14,6 +14,7 @@ import { GenresModule } from './domain/genres/genres.module';
 import { PeopleController } from './domain/people/people.controller';
 import { PeopleService } from './domain/people/people.service';
 import { PeopleModule } from './domain/people/people.module';
+import { RecommendationModule } from './domain/recommendation/recommendation.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { PeopleModule } from './domain/people/people.module';
     ReviewsModule,
     GenresModule,
     PeopleModule,
+    RecommendationModule,
   ],
   controllers: [AppController],
   providers: [AppService],

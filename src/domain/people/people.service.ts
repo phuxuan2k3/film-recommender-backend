@@ -3,8 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { People, PeopleDocument } from './schemas/people.schema';
 import { REST_CONNECTION_NAME } from 'src/common/const';
 import { Model } from 'mongoose';
-import { PeopleMediumPresenter } from './response/people-small.presenter';
 import { PeopleMoviePresenter } from './response/people-movie.presenter';
+import { PeopleMediumPresenter } from './response/people-medium.presenter';
 
 @Injectable()
 export class PeopleService {
