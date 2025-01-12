@@ -33,6 +33,11 @@ export class MoviesController {
         return await this.moviesService.getPopularMovies(query);
     }
 
+    @Get('cast/:movie_id')
+    async getCast(@Param('movie_id') movie_id: number) {
+        return await this.moviesService.getMovieCast(movie_id);
+    }
+
     @Get(':id')
     async getMovieDetail(@Param('id') id: number) {
         return await this.moviesService.getMovieDetail(id);

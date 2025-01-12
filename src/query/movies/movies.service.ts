@@ -14,6 +14,7 @@ import { totalPage } from '../common/helper/total-page';
 import { MoviesPopular } from './schemas/movies-popular.schema';
 import { getYouTubeLink } from '../common/helper/link';
 import { TrailersPresenter } from './response/trailers.presenter';
+import { MovieMediumPresenter } from './response/movies-medium.presenter';
 
 @Injectable()
 export class MoviesService {
@@ -128,20 +129,22 @@ export class MoviesService {
         return movieTrailerResult;
     }
 
-    async getMovieDetail(id: number): Promise<Movie> {
+    async getMovieDetail(id: number): Promise<MovieMediumPresenter> {
         const doc = await this.movieModel
-            .findOne({ id: id })
-            .lean();
+            .findOne({ id: id }, MovieMediumPresenter.getProjection())
+            .exec();
         if (doc == null) return null;
-        return doc;
+        return {
+            ...doc,
+            belongs_to_collection: doc.belongs_to_collection ? doc.belongs_to_collection.name : null
+        } as MovieMediumPresenter;
     }
 
-    async movieCompositionSmall(id: number[]): Promise<MovieSmallPresenter[]> {
-        const docs = await this.movieModel
-            .find({
-                id: { $in: id }
-            }, MovieSmallPresenter.getProjection())
+    async getMovieCast(id: number): Promise<any> {
+        const doc = await this.movieModel
+            .findOne({ id: id }, { credits: 1 })
             .lean();
-        return docs;
+        if (doc == null) return null;
+        return doc.credits.cast;
     }
 }
