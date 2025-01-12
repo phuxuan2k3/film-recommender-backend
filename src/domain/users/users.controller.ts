@@ -5,6 +5,9 @@ import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { UserCreateBody } from './request/user-create.body';
 import { UsersAccountService } from './exports/users-account.service';
 import { UserUpdateBody } from './request/user-update.body';
+import { UserIdParam } from './request/user-id.param';
+import { MovieIdParam } from '../movies/request/movie-id.param';
+import { MovieRatingBody } from './request/movie-rating.body';
 
 // todo: get users from token
 const user_id = "abc";
@@ -34,17 +37,17 @@ export class UsersController {
     }
 
     @Post('delete/:user_id')
-    async deleteUser(@Param() param: { user_id: string }) {
+    async deleteUser(@Param() param: UserIdParam) {
         await this.userInfoService.delete(param.user_id);
     }
 
     @Post('rating/add/:movie_id')
-    async addRating(@Param() param: { movie_id: number }, @Body() body: { rating: number }) {
+    async addRating(@Param() param: MovieIdParam, @Body() body: MovieRatingBody) {
         await this.usersAggregateService.addRating(user_id, param.movie_id, body.rating);
     }
 
     @Post('rating/remove/:movie_id')
-    async removeRating(@Param() param: { movie_id: number }) {
+    async removeRating(@Param() param: MovieIdParam) {
         await this.usersAggregateService.removeRating(user_id, param.movie_id);
     }
 
@@ -54,12 +57,12 @@ export class UsersController {
     }
 
     @Post('favorite/add/:movie_id')
-    async addFavorite(@Param() param: { movie_id: number }) {
+    async addFavorite(@Param() param: MovieIdParam) {
         await this.usersAggregateService.addFavorite(user_id, param.movie_id);
     }
 
     @Post('favorite/remove/:movie_id')
-    async removeFavorite(@Param() param: { movie_id: number }) {
+    async removeFavorite(@Param() param: MovieIdParam) {
         await this.usersAggregateService.removeFavorite(user_id, param.movie_id);
     }
 
@@ -69,12 +72,12 @@ export class UsersController {
     }
 
     @Post('watchlist/add/:movie_id')
-    async addWatchlist(@Param() param: { movie_id: number }) {
+    async addWatchlist(@Param() param: MovieIdParam) {
         await this.usersAggregateService.addWatchlist(user_id, param.movie_id);
     }
 
     @Post('watchlist/remove/:movie_id')
-    async removeWatchlist(@Param() param: { movie_id: number }) {
+    async removeWatchlist(@Param() param: MovieIdParam) {
         await this.usersAggregateService.removeWatchlist(user_id, param.movie_id);
     }
 
@@ -84,12 +87,12 @@ export class UsersController {
     }
 
     @Post('history/add/:movie_id')
-    async addHistory(@Param() param: { movie_id: number }) {
+    async addHistory(@Param() param: MovieIdParam) {
         await this.usersAggregateService.addHistory(user_id, param.movie_id);
     }
 
     @Post('history/remove/:movie_id')
-    async removeHistory(@Param() param: { movie_id: number }) {
+    async removeHistory(@Param() param: MovieIdParam) {
         await this.usersAggregateService.removeHistory(user_id, param.movie_id);
     }
 

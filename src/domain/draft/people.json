@@ -1,0 +1,1517 @@
+{
+    "_id": {
+        "$oid": "674fb3320eac33604a6844c1"
+    },
+    "tmdb_id": 130640,
+    "adult": false,
+    "also_known_as": [
+        "Хейлі Стайнфельд"
+    ],
+    "biography": "Hailee Steinfeld (born December 11, 1996) is an American actress and singer. Known for her acting versatility and musical prowess, she is the recipient of various accolades, including a Peabody Award, a Critics' Choice Movie Award, a Billboard Music Award, and nominations for an Academy Award, a British Academy Film Award, a Golden Globe Award, three Critics' Choice Movie Awards and a Screen Actors Guild Award.\n\nShe had her breakthrough with the western drama film True Grit (2010), which earned her Academy Award and Screen Actors Guild Award nominations for Best Supporting Actress, and a BAFTA Award nomination for Best Actress. Steinfeld then rose to mainstream prominence for her lead roles in Ender's Game (2013), Romeo & Juliet (2013), Begin Again (2013), and 3 Days to Kill (2014). She received critical acclaim for her roles in the Pitch Perfect film series (2015–2017) and the coming-of-age comedy-drama film The Edge of Seventeen (2016), the latter of which earned her a Golden Globe Award and Critics' Choice Movie Award nomination.\n\nSteinfeld has since provided the voice of Gwen Stacy / Spider-Woman in the animated film Spider-Man: Into the Spider-Verse (2018) and Vi in Netflix's animated TV series Arcane (2021–2024), based on the League of Legends video game franchise. She also starred as Charlie Watson in the Transformers film Bumblebee (2018) and Emily Dickinson in the Apple TV+ comedy-drama series Dickinson (2019–2021). She played Kate Bishop / Hawkeye, appearing in the 2021 Disney+ series Hawkeye, set in the Marvel Cinematic Universe.\n\nSteinfeld gained recognition in music after performing \"Flashlight\" in Pitch Perfect 2 (2015). She signed with Republic Records soon after and released her debut single, \"Love Myself\", followed by her debut extended play Haiz (2015). She went on to release a series of successful singles, including \"Starving\", \"Most Girls\" and \"Let Me Go\". In 2020, she released her second extended play, Half Written Story.\n\nDescription above from the Wikipedia article Hailee Steinfeld, licensed under CC-BY-SA, full list of contributors on Wikipedia.",
+    "birthday": "1996-12-11",
+    "deathday": null,
+    "gender": 1,
+    "homepage": "https://www.haileesteinfeldofficial.com/",
+    "id": 130640,
+    "imdb_id": "nm2794962",
+    "known_for_department": "Acting",
+    "name": "Hailee Steinfeld",
+    "place_of_birth": "Tarzana, Los Angeles, California, USA",
+    "popularity": 165.215,
+    "profile_path": "/dxSDWkiVaC6JYjrV3XRAZI7HOSS.jpg",
+    "movie_credits": {
+        "cast": [
+            {
+                "adult": false,
+                "backdrop_path": "/rLnv5QXUE3ITZTfrobsfXuAUtG.jpg",
+                "genre_ids": [
+                    99
+                ],
+                "id": 877188,
+                "original_language": "en",
+                "original_title": "Marvel Studios' 2021 Disney+ Day Special",
+                "overview": "Explore the Disney+ series of the MCU—past, present and future.",
+                "popularity": 4.774,
+                "poster_path": "/zh0B5DDP93e3zokktb5aHHfIh01.jpg",
+                "release_date": "2021-11-12",
+                "title": "Marvel Studios' 2021 Disney+ Day Special",
+                "video": false,
+                "vote_average": 7,
+                "vote_count": 29,
+                "character": "Kate Bishop (archive footage)",
+                "credit_id": "618f6a2e63e6fb004376081b",
+                "order": 47
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/tecyGlerpN54dH1kYWXoesUFGK3.jpg",
+                "genre_ids": [
+                    18,
+                    12,
+                    37
+                ],
+                "id": 44264,
+                "original_language": "en",
+                "original_title": "True Grit",
+                "overview": "Following the murder of her father by a hired hand, a 14-year-old farm girl sets out to capture the killer. To aid her, she hires the toughest U.S. Marshal she can find—a man with 'true grit'—Reuben J. 'Rooster' Cogburn.",
+                "popularity": 37.216,
+                "poster_path": "/tCrB8pcjadZjsDk7rleGJaIv78k.jpg",
+                "release_date": "2010-12-22",
+                "title": "True Grit",
+                "video": false,
+                "vote_average": 7.307,
+                "vote_count": 5243,
+                "character": "Mattie Ross",
+                "credit_id": "52fe4681c3a36847f8102c4f",
+                "order": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/zWvOs6lepfOI0dPa1ANVcdbkBuY.jpg",
+                "genre_ids": [
+                    878,
+                    28,
+                    12
+                ],
+                "id": 80274,
+                "original_language": "en",
+                "original_title": "Ender's Game",
+                "overview": "Based on the classic novel by Orson Scott Card, Ender's Game is the story of the Earth's most gifted children training to defend their homeplanet in the space wars of the future.",
+                "popularity": 22.961,
+                "poster_path": "/vmd3CNeG2B9FXsit61oc7oxabej.jpg",
+                "release_date": "2013-10-24",
+                "title": "Ender's Game",
+                "video": false,
+                "vote_average": 6.6,
+                "vote_count": 5795,
+                "character": "Petra Arkanian",
+                "credit_id": "52fe47b29251416c91072cd7",
+                "order": 2
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/46Br5afTklXva5gRI6wXcAApaGP.jpg",
+                "genre_ids": [
+                    16,
+                    28,
+                    12,
+                    878
+                ],
+                "id": 911916,
+                "original_language": "en",
+                "original_title": "Spider-Man: Beyond the Spider-Verse",
+                "overview": "Plot TBA.",
+                "popularity": 24.595,
+                "poster_path": "/rZ4arzyaDyI8l9Y7VIPPsDGARwh.jpg",
+                "release_date": "",
+                "title": "Spider-Man: Beyond the Spider-Verse",
+                "video": false,
+                "vote_average": 0,
+                "vote_count": 0,
+                "character": "Gwen Stacy (voice)",
+                "credit_id": "6479f566e323f300c4295a5d",
+                "order": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/3MIG7hIJtpuyyytRSr8asm9YLGt.jpg",
+                "genre_ids": [
+                    10749,
+                    18
+                ],
+                "id": 91745,
+                "original_language": "en",
+                "original_title": "Romeo & Juliet",
+                "overview": "In Verona, bad blood between the Montague and Capulet families leads to much bitterness. Despite the hostility, Romeo Montague manages an invitation to a masked ball at the estate of the Capulets and meets Juliet, their daughter. The two are instantly smitten but dismayed to learn that their families are enemies. Romeo and Juliet figure out a way to pursue their romance, but Romeo is banished for his part in the slaying of Juliet's cousin, Tybalt.",
+                "popularity": 12.588,
+                "poster_path": "/9FZ3wTjY9rUvIoobJFv8ozoTwTT.jpg",
+                "release_date": "2013-09-12",
+                "title": "Romeo & Juliet",
+                "video": false,
+                "vote_average": 6.742,
+                "vote_count": 560,
+                "character": "Juliet Capulet",
+                "credit_id": "52fe48e39251416c750b6815",
+                "order": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/jUhqvox1RCNMg4yWWW5AqIVX8Mj.jpg",
+                "genre_ids": [
+                    99
+                ],
+                "id": 936643,
+                "original_language": "en",
+                "original_title": "Marvel Studios Assembled: The Making of Hawkeye",
+                "overview": "Join the likes of Jeremy Renner, Hailee Steinfeld, Florence Pugh, and Vincent D’Onofrio as they reveal how Marvel Studios’ “Hawkeye” was conceived and created. Witness firsthand what it took to pull off the show’s pulse-pounding action set pieces, and discover how iconic characters from the pages of Marvel Comics such as Kate Bishop were adapted and brought to life for the six-episode series.",
+                "popularity": 8.507,
+                "poster_path": "/pQOLNPHe4rwXl3RpKNa0VWjYNLR.jpg",
+                "release_date": "2022-02-09",
+                "title": "Marvel Studios Assembled: The Making of Hawkeye",
+                "video": false,
+                "vote_average": 7,
+                "vote_count": 43,
+                "character": "Self - Kate Bishop",
+                "credit_id": "6203e61e226c56001c28e945",
+                "order": 8
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/jbthbh0KzaUWFPYvkfmXAamjI8j.jpg",
+                "genre_ids": [
+                    16,
+                    28,
+                    12,
+                    878
+                ],
+                "id": 569094,
+                "original_language": "en",
+                "original_title": "Spider-Man: Across the Spider-Verse",
+                "overview": "After reuniting with Gwen Stacy, Brooklyn’s full-time, friendly neighborhood Spider-Man is catapulted across the Multiverse, where he encounters the Spider Society, a team of Spider-People charged with protecting the Multiverse’s very existence. But when the heroes clash on how to handle a new threat, Miles finds himself pitted against the other Spiders and must set out on his own to save those he loves most.",
+                "popularity": 218.852,
+                "poster_path": "/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+                "release_date": "2023-05-31",
+                "title": "Spider-Man: Across the Spider-Verse",
+                "video": false,
+                "vote_average": 8.354,
+                "vote_count": 7078,
+                "character": "Gwen Stacy (voice)",
+                "credit_id": "6489a502d2b209010c1b8eda",
+                "order": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": null,
+                "genre_ids": [],
+                "id": 436959,
+                "original_language": "en",
+                "original_title": "iHeartRadio Summer Pool Party 2016",
+                "overview": "The iHeartRadio Summer Pool Party is part of Fontainebleau's BleauLive concert series, and will kick off Saturday afternoon with an all-day pool party featuring sets from iHeartRadio's house DJs, including Prostyle. Then, at night, the heat turns up when the incredible 2016 lineup hits the stage during a live concert.  Performing live at the 2016 Summer Pool Party in Miami this year are Flo Rida, DNCE, Tinashe, Lukas Graham, Kygo and Jason Derulo, and special guest Hailee Steinfeld,",
+                "popularity": 0.623,
+                "poster_path": null,
+                "release_date": "2016-05-21",
+                "title": "iHeartRadio Summer Pool Party 2016",
+                "video": true,
+                "vote_average": 10,
+                "vote_count": 1,
+                "character": "Self - Host",
+                "credit_id": "64a471081bf26600acae323a",
+                "order": 0
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/y6pjPyfKAkQSUcfsBdUFgRKBlUL.jpg",
+                "genre_ids": [
+                    28,
+                    18,
+                    53
+                ],
+                "id": 192102,
+                "original_language": "en",
+                "original_title": "3 Days to Kill",
+                "overview": "A dangerous international spy is determined to give up his high stakes life to finally build a closer relationship with his estranged wife and daughter. But first, he must complete one last mission - even if it means juggling the two toughest assignments yet: hunting down the world's most ruthless terrorist and looking after his teenage daughter for the first time in ten years, while his wife is out of town.",
+                "popularity": 26.026,
+                "poster_path": "/xhSoCoiMAXa4rOM7KhFSOs3gbh7.jpg",
+                "release_date": "2014-02-14",
+                "title": "3 Days to Kill",
+                "video": false,
+                "vote_average": 6.091,
+                "vote_count": 2155,
+                "character": "Zooey Renner",
+                "credit_id": "52fe4c9b9251416c910fa44f",
+                "order": 2
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/fRdErQ61VjZPx1fpUedrCvbl3OJ.jpg",
+                "genre_ids": [
+                    18
+                ],
+                "id": 209271,
+                "original_language": "en",
+                "original_title": "Hateship Loveship",
+                "overview": "A shy caretaker believes that the father of her teenage charge is falling in love with her, unaware that she is actually the victim of the girl's prank.",
+                "popularity": 8.697,
+                "poster_path": "/kvdVpjrRREFBCowBhOGs6Tj14ld.jpg",
+                "release_date": "2014-04-11",
+                "title": "Hateship Loveship",
+                "video": false,
+                "vote_average": 5.838,
+                "vote_count": 145,
+                "character": "Sabitha",
+                "credit_id": "52fe4d60c3a368484e1e5d19",
+                "order": 2
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/xYA4iSU2mKoDu72CzOjcfKwHC7Y.jpg",
+                "genre_ids": [
+                    35,
+                    10402,
+                    10749,
+                    18
+                ],
+                "id": 198277,
+                "original_language": "en",
+                "original_title": "Begin Again",
+                "overview": "Gretta, a budding songwriter, finds herself alone after her boyfriend Dave ditches her. Her life gains purpose when Dan, a record label executive, notices her talent.",
+                "popularity": 20.472,
+                "poster_path": "/qx4HXHXt528hS4rwePZbZo20xqZ.jpg",
+                "release_date": "2013-09-07",
+                "title": "Begin Again",
+                "video": false,
+                "vote_average": 7.239,
+                "vote_count": 3759,
+                "character": "Violet Mulligan",
+                "credit_id": "52fe4d769251416c91116e81",
+                "order": 3
+            },
+            {
+                "adult": false,
+                "backdrop_path": null,
+                "genre_ids": [
+                    99
+                ],
+                "id": 224335,
+                "original_language": "en",
+                "original_title": "Letters to Jackie: Remembering President Kennedy",
+                "overview": "Revisits President John F. Kennedy's presidential legacy through 21 of the more than 800,000 condolence letters written to Jackie Kennedy after JFK's assassination. Based on a book by Ellen Fitzpatrick",
+                "popularity": 2.944,
+                "poster_path": "/tXs57SFZfoivRYVMsQNaOxkQ1at.jpg",
+                "release_date": "2013-06-19",
+                "title": "Letters to Jackie: Remembering President Kennedy",
+                "video": false,
+                "vote_average": 6.6,
+                "vote_count": 8,
+                "character": "Narrator (voice)",
+                "credit_id": "52fe4e399251416c7514f6a9",
+                "order": 14
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/7wEo99rBCGz6FJfKZrTceud46nI.jpg",
+                "genre_ids": [
+                    35,
+                    18,
+                    10402
+                ],
+                "id": 253406,
+                "original_language": "en",
+                "original_title": "10,000 Saints",
+                "overview": "A sweeping multigenerational story set against the backdrop of the raw, roaring New York City of the late 1980s; adoption, teen pregnancy, drugs, hardcore punk rock, the unbridled optimism and reckless stupidity of the young—and old—are all major elements in this heart-aching tale of the son of diehard hippies and his strange odyssey through the extremes of late 20th century youth culture.",
+                "popularity": 8.221,
+                "poster_path": "/zZpQfrdXhNq5sqMMzDQkpqZQxXq.jpg",
+                "release_date": "2015-08-14",
+                "title": "10,000 Saints",
+                "video": false,
+                "vote_average": 6,
+                "vote_count": 166,
+                "character": "Eliza Urbanski",
+                "credit_id": "52fe4e7e9251416c911337a5",
+                "order": 4
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/hcs3C3RLWKnXluxP77ZHm83wqTz.jpg",
+                "genre_ids": [
+                    35,
+                    10749
+                ],
+                "id": 239236,
+                "original_language": "en",
+                "original_title": "She's a Fox",
+                "overview": "Infatuated with the hottest girl in school, fifth-grader Cameron Sawyer puts everything on the line – including his mullet – to win the girl of his dreams.",
+                "popularity": 1.364,
+                "poster_path": "/xIPFX0qldyK03IGEPh2zz0mnRhh.jpg",
+                "release_date": "2009-07-26",
+                "title": "She's a Fox",
+                "video": false,
+                "vote_average": 8.1,
+                "vote_count": 4,
+                "character": "Talia Alden",
+                "credit_id": "52fe4e8fc3a36847f8298a25",
+                "order": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/iUDGuJ4sTEtZpzwElpPr22wWhSO.jpg",
+                "genre_ids": [
+                    28,
+                    35,
+                    12,
+                    10749
+                ],
+                "id": 248574,
+                "original_language": "en",
+                "original_title": "Barely Lethal",
+                "overview": "A 16-year-old international assassin yearning for a \"normal\" adolescence fakes her own death and enrolls as a senior in a suburban high school. She quickly learns that being popular can be more painful than getting water-boarded.",
+                "popularity": 14.32,
+                "poster_path": "/8emz9dKW8KKIqG8WcFG1lJbr2ub.jpg",
+                "release_date": "2015-04-23",
+                "title": "Barely Lethal",
+                "video": false,
+                "vote_average": 5.7,
+                "vote_count": 1046,
+                "character": "Megan Walsh",
+                "credit_id": "52fe4f35c3a36847f82c555d",
+                "order": 0
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/8yM0mNM5begExtTdmsi5ZnK4Ipm.jpg",
+                "genre_ids": [
+                    53,
+                    18,
+                    28,
+                    9648
+                ],
+                "id": 257440,
+                "original_language": "en",
+                "original_title": "Term Life",
+                "overview": "If Nick Barrow can stay alive for 21 days, he'll die happy. Everyone Nick knows wants him dead; Mob bosses, contract killers, and dirty cops. Performing the last act of a desperate man, Nick takes out a million dollar insurance policy on himself, payable to his estranged daughter. The problem? The policy doesn't take effect for 21 days. Nick knows they'll be lucky to be alive for twenty-one hours.",
+                "popularity": 13.649,
+                "poster_path": "/9oAVYDh7RHW3wzQWbGsRB7RFE6J.jpg",
+                "release_date": "2016-04-29",
+                "title": "Term Life",
+                "video": false,
+                "vote_average": 5.962,
+                "vote_count": 305,
+                "character": "Cate Barrow",
+                "credit_id": "5310bef1c3a36829c400148f",
+                "order": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/bWOfRV1Ubk9SWEDZDDjsmIUCcbZ.jpg",
+                "genre_ids": [
+                    35,
+                    10402
+                ],
+                "id": 254470,
+                "original_language": "en",
+                "original_title": "Pitch Perfect 2",
+                "overview": "The Bellas are back, and they are better than ever. After being humiliated in front of none other than the President of the United States of America, the Bellas are taken out of the Aca-Circuit. In order to clear their name, and regain their status, the Bellas take on a seemingly impossible task: winning an international competition no American team has ever won. In order to accomplish this monumental task, they need to strengthen the bonds of friendship and sisterhood and blow away the competition with their amazing aca-magic! With all new friends and old rivals tagging along for the trip, the Bellas can hopefully accomplish their dreams.",
+                "popularity": 52.973,
+                "poster_path": "/fQaEGzFmvTYu3G641WV0Tg9auAt.jpg",
+                "release_date": "2015-05-07",
+                "title": "Pitch Perfect 2",
+                "video": false,
+                "vote_average": 6.857,
+                "vote_count": 5281,
+                "character": "Emily Junk",
+                "credit_id": "53626ef70e0a2616c900005c",
+                "order": 2
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/criPrxkTggCra1jch49jsiSeXo1.jpg",
+                "genre_ids": [
+                    878,
+                    12,
+                    28
+                ],
+                "id": 609681,
+                "original_language": "en",
+                "original_title": "The Marvels",
+                "overview": "Carol Danvers, aka Captain Marvel, has reclaimed her identity from the tyrannical Kree and taken revenge on the Supreme Intelligence. But unintended consequences see Carol shouldering the burden of a destabilized universe. When her duties send her to an anomalous wormhole linked to a Kree revolutionary, her powers become entangled with that of Jersey City super-fan Kamala Khan, aka Ms. Marvel, and Carol’s estranged niece, now S.A.B.E.R. astronaut Captain Monica Rambeau. Together, this unlikely trio must team up and learn to work in concert to save the universe.",
+                "popularity": 78.176,
+                "poster_path": "/9GBhzXMFjgcZ3FdR9w3bUMMTps5.jpg",
+                "release_date": "2023-11-08",
+                "title": "The Marvels",
+                "video": false,
+                "vote_average": 6.1,
+                "vote_count": 2724,
+                "character": "Kate Bishop",
+                "credit_id": "654c9ce4fd4f8000e48207ff",
+                "order": 28
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/9EdquIZh5tD7g537z5l3zXX14xs.jpg",
+                "genre_ids": [
+                    37,
+                    18
+                ],
+                "id": 284284,
+                "original_language": "en",
+                "original_title": "The Keeping Room",
+                "overview": "In this radically reimagined American Western set towards the end of the Civil War, Southerner Augusta encounters two renegade, drunken soldiers who are on a mission of pillage and violence. After escaping an attempted assault, Augusta races back to the isolated farmhouse that she shares with her sister Louise and their female slave Mad. When the pair of soldiers track Augusta down intent on exacting revenge, the trio of women are forced to take up arms to fend off their assailants, finding ways to resourcefully defend their home––and themselves––as the escalating attacks become more unpredictable and relentless.",
+                "popularity": 12.481,
+                "poster_path": "/bW8qvUruaq6kNeFHRXH8N5IyPOe.jpg",
+                "release_date": "2014-09-25",
+                "title": "The Keeping Room",
+                "video": false,
+                "vote_average": 5.756,
+                "vote_count": 201,
+                "character": "Louise",
+                "credit_id": "53d7f0d60e0a2603440023c3",
+                "order": 0
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/dXLs7RiKzFlD1clG4PrRYxN3g68.jpg",
+                "genre_ids": [
+                    37,
+                    18
+                ],
+                "id": 264656,
+                "original_language": "en",
+                "original_title": "The Homesman",
+                "overview": "When three women living on the edge of the American frontier are driven mad by harsh pioneer life, the task of saving them falls to the pious, independent-minded Mary Bee Cuddy. Transporting the women by covered wagon to Iowa, she soon realizes just how daunting the journey will be, and employs a low-life drifter, George Briggs, to join her. The unlikely pair and the three women head east, where a waiting minister and his wife have offered to take the women in. But the group first must traverse the harsh Nebraska Territories marked by stark beauty, psychological peril and constant threat.",
+                "popularity": 13.263,
+                "poster_path": "/eGpuOhkm1wG2AxEJShazH5NVGAO.jpg",
+                "release_date": "2014-05-18",
+                "title": "The Homesman",
+                "video": false,
+                "vote_average": 6.5,
+                "vote_count": 785,
+                "character": "Tabitha Hutchinson",
+                "credit_id": "54141a98c3a3687db600173f",
+                "order": 10
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/EkfquJIiHtxj83YkNiv1oknQir.jpg",
+                "genre_ids": [
+                    10402
+                ],
+                "id": 430600,
+                "original_language": "en",
+                "original_title": "iHeartRadio Jingle Ball 2016",
+                "overview": "Elvis Duran hosts this concert from Madison Square Garden. Among those scheduled to perform are Justin Bieber, Ariana Grande, Fifth Harmony, Diplo, Charlie Puth, Lukas Graham, DNCE and Niall Horan.",
+                "popularity": 0.653,
+                "poster_path": "/b9P3TE34IOcKpTZ94tYlXuadkrF.jpg",
+                "release_date": "2016-12-15",
+                "title": "iHeartRadio Jingle Ball 2016",
+                "video": true,
+                "vote_average": 7,
+                "vote_count": 1,
+                "character": "Self - Performer",
+                "credit_id": "63a2976ece997a10117b2f1f",
+                "order": 9
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/LbVI2BVhNUf6dI7cN5oexmHiwK.jpg",
+                "genre_ids": [
+                    27,
+                    53
+                ],
+                "id": 1233413,
+                "original_language": "en",
+                "original_title": "Sinners",
+                "overview": "Trying to leave their troubled lives behind, twin brothers return to their hometown to start again, only to discover that an even greater evil is waiting to welcome them back.",
+                "popularity": 14.069,
+                "poster_path": "/oLwgIMCgtpSO8LpPoEhzxETD3J4.jpg",
+                "release_date": "2025-03-05",
+                "title": "Sinners",
+                "video": false,
+                "vote_average": 0,
+                "vote_count": 0,
+                "character": "Mary",
+                "credit_id": "661594bd3d7454018509b4ea",
+                "order": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/4l7Ay0Yj7LpUchTZCocl8vBJ1ZE.jpg",
+                "genre_ids": [
+                    99
+                ],
+                "id": 370756,
+                "original_language": "en",
+                "original_title": "Always at The Carlyle",
+                "overview": "The iconic Carlyle hotel has been an international destination for a particular jet set as well as a favorite haunt of the most discernible New Yorkers.",
+                "popularity": 9.829,
+                "poster_path": "/ywkkKF4abwARo9WBk6WrwcGNn6B.jpg",
+                "release_date": "2018-05-11",
+                "title": "Always at The Carlyle",
+                "video": false,
+                "vote_average": 6.9,
+                "vote_count": 18,
+                "character": "Self (archive footage)",
+                "credit_id": "66144c9c9bcd0f014a2b075c",
+                "order": 69
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/wiAnzQaR9G3ieDVMKd3Qrib6KAJ.jpg",
+                "genre_ids": [
+                    10402
+                ],
+                "id": 373558,
+                "original_language": "en",
+                "original_title": "Taylor Swift: The 1989 World Tour - Live",
+                "overview": "Filmed in front of 76,000 fans at the ANZ Stadium in Sydney, Australia, \"The 1989 World Tour Live\" captures Taylor Swift's entire performance while also mixing in behind-the-scene, rehearsal, and special guest footage from her 1989 Tour.",
+                "popularity": 8.652,
+                "poster_path": "/zwRGig0N8l6v5WxdrmwSBEBToAe.jpg",
+                "release_date": "2015-12-20",
+                "title": "Taylor Swift: The 1989 World Tour - Live",
+                "video": false,
+                "vote_average": 8.5,
+                "vote_count": 144,
+                "character": "Self",
+                "credit_id": "568d998d9251416b55000727",
+                "order": 81
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/zxQMedIezpcS6Npx8Q5o30WNDhC.jpg",
+                "genre_ids": [
+                    35,
+                    18
+                ],
+                "id": 376660,
+                "original_language": "en",
+                "original_title": "The Edge of Seventeen",
+                "overview": "Two high school girls are best friends until one dates the other's older brother, who is totally his sister's nemesis.",
+                "popularity": 22.057,
+                "poster_path": "/15FykQKiM0aYpC1MuybR43xl8eF.jpg",
+                "release_date": "2016-11-18",
+                "title": "The Edge of Seventeen",
+                "video": false,
+                "vote_average": 7.16,
+                "vote_count": 4032,
+                "character": "Nadine Franklin",
+                "credit_id": "5690c93bc3a3686b55001ba7",
+                "order": 0
+            },
+            {
+                "adult": false,
+                "backdrop_path": null,
+                "genre_ids": [
+                    99
+                ],
+                "id": 1296883,
+                "original_language": "en",
+                "original_title": "From Dickinson, With Love",
+                "overview": "Documentary of the dickinson series.",
+                "popularity": 1.138,
+                "poster_path": "/knwcc0u2OLROyWpZnpUjmZfjSsT.jpg",
+                "release_date": "2022-01-12",
+                "title": "From Dickinson, With Love",
+                "video": true,
+                "vote_average": 0,
+                "vote_count": 0,
+                "character": "Emily Dickinson",
+                "credit_id": "665b001d53be7ee9cf2ff81d",
+                "order": 0
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/f5a9YRvJ7uSM0JAtEI59sqKRnVg.jpg",
+                "genre_ids": [
+                    35,
+                    10402
+                ],
+                "id": 353616,
+                "original_language": "en",
+                "original_title": "Pitch Perfect 3",
+                "overview": "After the highs of winning the world championships, the Bellas find themselves split apart and discovering there aren't job prospects for making music with your mouth. But when they get the chance to reunite for an overseas USO tour, this group of awesome nerds will come together to make some music, and some questionable decisions, one last time.",
+                "popularity": 27.408,
+                "poster_path": "/iHxmTTFMuuPIwwj39C4Zkk9IL4m.jpg",
+                "release_date": "2017-12-20",
+                "title": "Pitch Perfect 3",
+                "video": false,
+                "vote_average": 6.525,
+                "vote_count": 3288,
+                "character": "Emily Junk",
+                "credit_id": "57436ba892514133ba000fa0",
+                "order": 3
+            },
+            {
+                "adult": false,
+                "backdrop_path": null,
+                "genre_ids": [
+                    12,
+                    14
+                ],
+                "id": 410679,
+                "original_language": "en",
+                "original_title": "The Magic Bracelet",
+                "overview": "'The Magic Bracelet' mysteriously links best friends Angela, Ashley and a cheese obsessed dog. When Ashley inherits a totem bracelet from a friend who died of Mitochondrial Disease - the same illness she herself battles - it leads the girls on a mystical journey of discovery in which a new level of friendship, family and healing is revealed. This project was created by Make A Film Foundation to fulfill the wish of 15 year old Rina Goldberg whose final words to her mom before she died of Mitochondrial disease were 'Promise to take care of my film.'",
+                "popularity": 1.915,
+                "poster_path": null,
+                "release_date": "2013-05-18",
+                "title": "The Magic Bracelet",
+                "video": false,
+                "vote_average": 0,
+                "vote_count": 0,
+                "character": "Angela",
+                "credit_id": "57aa1ed79251417e000000fd",
+                "order": 0
+            },
+            {
+                "adult": false,
+                "backdrop_path": null,
+                "genre_ids": [],
+                "id": 410677,
+                "original_language": "en",
+                "original_title": "Without Wings",
+                "overview": "Sarah is an abandoned, vulnerable, broken, and yet strong-willed child. Her father has left the family, and she is desperate to see him. Sarah speaks to only one person: her best friend Allison, who bears witness to the deteriorating relationship between Sarah and her mother Diane, whom Sarah blames for her father's absence. When a heated argument leaves both mother and daughter's emotions exposed, Sarah seeks out Allison. In doing so, Sarah is forced to confront both a part of her past and a present reality that she may not be prepared to live within.",
+                "popularity": 0.718,
+                "poster_path": "/voLe0RPWE6UNhiMBPScyF16NDq2.jpg",
+                "release_date": "2010-01-01",
+                "title": "Without Wings",
+                "video": false,
+                "vote_average": 0,
+                "vote_count": 0,
+                "character": "Allison",
+                "credit_id": "57aa1d89c3a3680e8c001715",
+                "order": 0
+            },
+            {
+                "adult": false,
+                "backdrop_path": null,
+                "genre_ids": [],
+                "id": 410676,
+                "original_language": "en",
+                "original_title": "Grand Cru",
+                "overview": "A 12-year-old girl goes on a journey, looking for a bottle of wine, to save her mother's job.",
+                "popularity": 0.645,
+                "poster_path": "/j8o0raUNbGgO9YEnnGZ4a0FEXTo.jpg",
+                "release_date": "2010-01-01",
+                "title": "Grand Cru",
+                "video": false,
+                "vote_average": 0,
+                "vote_count": 0,
+                "character": "Sophie",
+                "credit_id": "57aa1cc3c3a3680e4e0016e6",
+                "order": 0
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/ngTdo4m5favK2cIsqMMOAlYtEX3.jpg",
+                "genre_ids": [
+                    28,
+                    12,
+                    878
+                ],
+                "id": 424783,
+                "original_language": "en",
+                "original_title": "Bumblebee",
+                "overview": "On the run in the year 1987, Bumblebee finds refuge in a junkyard in a small Californian beach town. Charlie, on the cusp of turning 18 and trying to find her place in the world, discovers Bumblebee, battle-scarred and broken.  When Charlie revives him, she quickly learns this is no ordinary yellow VW bug.",
+                "popularity": 55.905,
+                "poster_path": "/fw02ONlDhrYjTSZV8XO6hhU3ds3.jpg",
+                "release_date": "2018-12-15",
+                "title": "Bumblebee",
+                "video": false,
+                "vote_average": 6.728,
+                "vote_count": 6109,
+                "character": "Charlie Watson",
+                "credit_id": "592f7f7f9251416970000c9d",
+                "order": 0
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/hlCq6Qh9GVtuNcGZF4mQYluaZix.jpg",
+                "genre_ids": [
+                    16,
+                    28,
+                    12,
+                    878
+                ],
+                "id": 324857,
+                "original_language": "en",
+                "original_title": "Spider-Man: Into the Spider-Verse",
+                "overview": "Struggling to find his place in the world while juggling school and family, Brooklyn teenager Miles Morales is unexpectedly bitten by a radioactive spider and develops unfathomable powers just like the one and only Spider-Man. While wrestling with the implications of his new abilities, Miles discovers a super collider created by the madman Wilson \"Kingpin\" Fisk, causing others from across the Spider-Verse to be inadvertently transported to his dimension.",
+                "popularity": 193.124,
+                "poster_path": "/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
+                "release_date": "2018-12-06",
+                "title": "Spider-Man: Into the Spider-Verse",
+                "video": false,
+                "vote_average": 8.398,
+                "vote_count": 15693,
+                "character": "Gwen Stacy (voice)",
+                "credit_id": "5b1817d592514170c2001972",
+                "order": 2
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/mamkWg6K5hpsloTKh67uGKMLcRm.jpg",
+                "genre_ids": [
+                    10402,
+                    99
+                ],
+                "id": 492970,
+                "original_language": "en",
+                "original_title": "Elton John: I'm Still Standing - A Grammy Salute",
+                "overview": "Elton John: I'm Still Standing – A Grammy Salute. Taped at the Theater at Madison Square Garden shortly after the 2018 Grammys and broadcast on CBS this week, the evening saw Elton John and husband David Furnish seated front row for a tribute to the works of Elton John and Bernie Taupin from Ed Sheeran, Kesha, Sam Smith, Shawn Mendes & SZA, Little Big Town and more. The whole thing ended with a stellar performance from the man himself, with the majority of his all-star guests joining him for a rollicking \"I'm Still Standing.\"",
+                "popularity": 2.283,
+                "poster_path": "/6dyNvikni2kltUjtNjJ0q6w1JdZ.jpg",
+                "release_date": "2018-04-10",
+                "title": "Elton John: I'm Still Standing - A Grammy Salute",
+                "video": false,
+                "vote_average": 7.8,
+                "vote_count": 8,
+                "character": "Self",
+                "credit_id": "5c28cf9b92514138d2c05207",
+                "order": 13
+            },
+            {
+                "adult": false,
+                "backdrop_path": null,
+                "genre_ids": [
+                    10749,
+                    35
+                ],
+                "id": 614945,
+                "original_language": "en",
+                "original_title": "Voicemails for Isabelle",
+                "overview": "This is about a young woman trying to navigate her dating life in Los Angeles.",
+                "popularity": 0.885,
+                "poster_path": null,
+                "release_date": "",
+                "title": "Voicemails for Isabelle",
+                "video": false,
+                "vote_average": 0,
+                "vote_count": 0,
+                "character": "",
+                "credit_id": "5d289f85a294f0001029292a",
+                "order": 0
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/bffxv4SSJefy3CdgSqVTlWbRiOt.jpg",
+                "genre_ids": [
+                    35
+                ],
+                "id": 584962,
+                "original_language": "en",
+                "original_title": "Between Two Ferns: The Movie",
+                "overview": "Galifianakis dreamed of becoming a star. But when Will Ferrell discovered his public access TV show, 'Between Two Ferns' and uploaded it to Funny or Die, Zach became a viral laughing stock. Now Zach and his crew are taking a road trip to complete a series of high-profile celebrity interviews and restore his reputation.",
+                "popularity": 12.969,
+                "poster_path": "/cHxc8v1GkzdjjhF2qnpG6wdXrOT.jpg",
+                "release_date": "2019-09-20",
+                "title": "Between Two Ferns: The Movie",
+                "video": false,
+                "vote_average": 6,
+                "vote_count": 862,
+                "character": "Hailee Steinfeld",
+                "credit_id": "5d6e982da284eb19a0336632",
+                "order": 16
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/a0xTB1vBxMGt6LGG4N7k1wO9lfL.jpg",
+                "genre_ids": [
+                    28,
+                    12,
+                    35
+                ],
+                "id": 458897,
+                "original_language": "en",
+                "original_title": "Charlie's Angels",
+                "overview": "Elena Houghlin is a scientist, engineer and inventor of Calisto -- a sustainable energy source that will revolutionize the way people use power. It will be ready as soon as she works out the last issue, if not it could be turned into a dangerous weapon. But when the cutting edge technology is pushed to an investor before she can do that, Elena turns to the Townsend Agency for help. Now, it's up to the Angels -- Jane, Sabina, and the newly recruited Elena -- to retrieve Calisto before it can be transformed into a weapon of mass destruction.",
+                "popularity": 35.202,
+                "poster_path": "/1DPUFG6QnGqzpvEaDEv7TaepycM.jpg",
+                "release_date": "2019-11-14",
+                "title": "Charlie's Angels",
+                "video": false,
+                "vote_average": 6.4,
+                "vote_count": 2959,
+                "character": "Angel Recruit",
+                "credit_id": "5dd0c352b76cbb00167a38d8",
+                "order": 44
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/2nsWnseiczETsmcf1mjDCexTjln.jpg",
+                "genre_ids": [
+                    16,
+                    99
+                ],
+                "id": 1385151,
+                "original_language": "en",
+                "original_title": "Spider-Man & The Spider-Verse Revolution",
+                "overview": "Celebrate the films that redefined animation, influenced culture and brought Spider-Man into all new dimensions.",
+                "popularity": 1.709,
+                "poster_path": "/wAIdZh7hdJIEXkmunbSBwQcAy8A.jpg",
+                "release_date": "2023-11-03",
+                "title": "Spider-Man & The Spider-Verse Revolution",
+                "video": false,
+                "vote_average": 0,
+                "vote_count": 0,
+                "character": "Self",
+                "credit_id": "672fa5fb6be32e3055d3985a",
+                "order": 1
+            }
+        ],
+        "crew": [
+            {
+                "adult": false,
+                "backdrop_path": "/ngTdo4m5favK2cIsqMMOAlYtEX3.jpg",
+                "genre_ids": [
+                    28,
+                    12,
+                    878
+                ],
+                "id": 424783,
+                "original_language": "en",
+                "original_title": "Bumblebee",
+                "overview": "On the run in the year 1987, Bumblebee finds refuge in a junkyard in a small Californian beach town. Charlie, on the cusp of turning 18 and trying to find her place in the world, discovers Bumblebee, battle-scarred and broken.  When Charlie revives him, she quickly learns this is no ordinary yellow VW bug.",
+                "popularity": 55.905,
+                "poster_path": "/fw02ONlDhrYjTSZV8XO6hhU3ds3.jpg",
+                "release_date": "2018-12-15",
+                "title": "Bumblebee",
+                "video": false,
+                "vote_average": 6.728,
+                "vote_count": 6109,
+                "credit_id": "65dae0d645765d0185d1de40",
+                "department": "Sound",
+                "job": "Songs"
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/jjuDhXlAY7yHc50t8gEZWvlkoEn.jpg",
+                "genre_ids": [
+                    18,
+                    10749
+                ],
+                "id": 337167,
+                "original_language": "en",
+                "original_title": "Fifty Shades Freed",
+                "overview": "Believing they have left behind shadowy figures from their past, newlyweds Christian and Ana fully embrace an inextricable connection and shared life of luxury. But just as she steps into her role as Mrs. Grey and he relaxes into an unfamiliar stability, new threats could jeopardize their happy ending before it even begins.",
+                "popularity": 98.697,
+                "poster_path": "/vwFR5WI1RQ1RCxS0cdTbiSgaXJr.jpg",
+                "release_date": "2018-01-17",
+                "title": "Fifty Shades Freed",
+                "video": false,
+                "vote_average": 6.701,
+                "vote_count": 7991,
+                "credit_id": "67062201a88614d6b08ad1ae",
+                "department": "Sound",
+                "job": "Songs"
+            }
+        ],
+        "id": 130640
+    },
+    "tv_credits": {
+        "cast": [
+            {
+                "adult": false,
+                "backdrop_path": "/b7bdBCRw4siIhqEVKqbtOb3VlTS.jpg",
+                "genre_ids": [
+                    10767
+                ],
+                "id": 16730,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "American Music Awards",
+                "overview": "An annual American music awards show. Unlike the Grammys, which are awarded on the basis of votes by members of the Recording Academy, the AMAs are determined by a poll of the public and music buyers.",
+                "popularity": 23.145,
+                "poster_path": "/lMfGSoq6otbyu7orszqAH4s9TQU.jpg",
+                "first_air_date": "1974-02-19",
+                "name": "American Music Awards",
+                "vote_average": 8.1,
+                "vote_count": 11,
+                "character": "Self - Musical Guest",
+                "credit_id": "6447f810c51acd04b6a946bd",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/sYXLeu5usz6yEz0k00FYvtEdodD.jpg",
+                "genre_ids": [
+                    16,
+                    10765,
+                    18,
+                    10759
+                ],
+                "id": 94605,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Arcane",
+                "overview": "Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.",
+                "popularity": 481.827,
+                "poster_path": "/abf8tHznhSvl9BAElD2cQeRr7do.jpg",
+                "first_air_date": "2021-11-06",
+                "name": "Arcane",
+                "vote_average": 8.776,
+                "vote_count": 4728,
+                "character": "Vi (voice)",
+                "credit_id": "614fdc8c397561008c5d43a0",
+                "episode_count": 18
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/3MNgUtxgwLGCcMSIfh5L5xaasAo.jpg",
+                "genre_ids": [
+                    10762,
+                    10751
+                ],
+                "id": 66379,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Radio Disney Music Awards",
+                "overview": "The Radio Disney Music Awards were an annual awards show operated and governed by Radio Disney, an American radio network. Beginning in 2001, the show was originally broadcast only on Radio Disney, but later began being televised on Disney Channel from 2013 onwards",
+                "popularity": 60.731,
+                "poster_path": "/nq7jAkkF5j6YO3Zer590ivQlF0e.jpg",
+                "first_air_date": "2013-04-27",
+                "name": "Radio Disney Music Awards",
+                "vote_average": 9.6,
+                "vote_count": 6,
+                "character": "Self - Presenter",
+                "credit_id": "61897487cb6db50042c729c9",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/tNi2aJPdCKfielGYzIi3IKxStz9.jpg",
+                "genre_ids": [
+                    10762,
+                    35
+                ],
+                "id": 502,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Sesame Street",
+                "overview": "On a special inner city street, the inhabitants—human and muppet—teach preschoolers basic educational and social concepts using comedy, cartoons, games, and songs.",
+                "popularity": 975.816,
+                "poster_path": "/14k9BfZ2p4rQBMeJ5crKTfUZVwD.jpg",
+                "first_air_date": "1969-11-10",
+                "name": "Sesame Street",
+                "vote_average": 7.096,
+                "vote_count": 244,
+                "character": "Self - Performer",
+                "credit_id": "64a6c9c1724de100fff7d306",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/amtOltTVcK9vQtL1iQS6p3LBi05.jpg",
+                "genre_ids": [
+                    10767
+                ],
+                "id": 62223,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "The Late Late Show with James Corden",
+                "overview": "Once Craig Ferguson retires, James Corden will be taking over The Late Late Show. The show is a late night talk show that interviews celebrities and has its own bits. And of course, it's all hosted by James Corden.",
+                "popularity": 307.414,
+                "poster_path": "/qPmVoG8G9tc1nN8ZwGV2zYcknit.jpg",
+                "first_air_date": "2015-03-23",
+                "name": "The Late Late Show with James Corden",
+                "vote_average": 5.375,
+                "vote_count": 132,
+                "character": "Self",
+                "credit_id": "57034bbc92514162660003e3",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/rLbXHqHqnme6FIE0UtkV4LUI7pz.jpg",
+                "genre_ids": [
+                    35,
+                    10767
+                ],
+                "id": 59941,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "The Tonight Show Starring Jimmy Fallon",
+                "overview": "After Jay Leno's second retirement from the program, Jimmy Fallon stepped in as his permanent replacement. After 42 years in Los Angeles the program was brought back to New York.",
+                "popularity": 463.617,
+                "poster_path": "/g4amxJvtpnY79J77xeamnAEUO8r.jpg",
+                "first_air_date": "2014-02-17",
+                "name": "The Tonight Show Starring Jimmy Fallon",
+                "vote_average": 5.8,
+                "vote_count": 316,
+                "character": "Self",
+                "credit_id": "651dd95ff04d0100c540f169",
+                "episode_count": 2
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/y1e4wd1e60vNitKfNu3uva9I5wJ.jpg",
+                "genre_ids": [
+                    10767
+                ],
+                "id": 210081,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Sherri",
+                "overview": "Sherri Shepherd, actress, comic, and Emmy Award-winning longtime co-host of \"The View\", appears before a live audience with a daily dose of pop culture, comedy, conversations, and daytime talk staples, including celebrity and human interest interviews;",
+                "popularity": 83.289,
+                "poster_path": "/tNpISQ0ymMpZmfRCeJXceAjyzev.jpg",
+                "first_air_date": "2022-09-12",
+                "name": "Sherri",
+                "vote_average": 4.2,
+                "vote_count": 7,
+                "character": "Self - Guest",
+                "credit_id": "65781949bbe1dd00fe2c454d",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/lhdUwhInXu31qHm65jwBAlpTp8P.jpg",
+                "genre_ids": [
+                    10767
+                ],
+                "id": 82873,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "The Kelly Clarkson Show",
+                "overview": "Kelly Clarkson presents the biggest newsmakers and names in film, television and music; as well as emerging new talent and everyday people who are beacons of hope in their communities.",
+                "popularity": 552.733,
+                "poster_path": "/9Gg1oM8Us8gCS5aJA8e0ZRuIHnf.jpg",
+                "first_air_date": "2019-09-09",
+                "name": "The Kelly Clarkson Show",
+                "vote_average": 6.263,
+                "vote_count": 57,
+                "character": "Self",
+                "credit_id": "656a75774a4bf6013d8d6075",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/jiSlSDL0PZsd3DeW9832lk7eBsE.jpg",
+                "genre_ids": [
+                    10767
+                ],
+                "id": 71494,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Golden Globe Awards",
+                "overview": "An annual awards ceremony recognizing excellence in film and television, both domestic and foreign, bestowed by the Hollywood Foreign Press Association.",
+                "popularity": 229.352,
+                "poster_path": "/gYG3SHNKui9ps9RfN4u9MMwpy10.jpg",
+                "first_air_date": "1944-01-20",
+                "name": "Golden Globe Awards",
+                "vote_average": 6.8,
+                "vote_count": 14,
+                "character": "Self - Presenter",
+                "credit_id": "659ed3da42d8a5014cdca38f",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/rLbXHqHqnme6FIE0UtkV4LUI7pz.jpg",
+                "genre_ids": [
+                    35,
+                    10767
+                ],
+                "id": 59941,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "The Tonight Show Starring Jimmy Fallon",
+                "overview": "After Jay Leno's second retirement from the program, Jimmy Fallon stepped in as his permanent replacement. After 42 years in Los Angeles the program was brought back to New York.",
+                "popularity": 463.617,
+                "poster_path": "/g4amxJvtpnY79J77xeamnAEUO8r.jpg",
+                "first_air_date": "2014-02-17",
+                "name": "The Tonight Show Starring Jimmy Fallon",
+                "vote_average": 5.8,
+                "vote_count": 316,
+                "character": "",
+                "credit_id": "62c856eedf294500505b6bd4",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/butPVWgcbtAjL9Z7jU7Xj1KA8KD.jpg",
+                "genre_ids": [
+                    10767,
+                    35
+                ],
+                "id": 22980,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Watch What Happens Live with Andy Cohen",
+                "overview": "Bravo network executive Andy Cohen discusses pop culture topics with celebrities and reality show personalities.",
+                "popularity": 1321.767,
+                "poster_path": "/onSD9UXfJwrMXWhq7UY7hGF2S1h.jpg",
+                "first_air_date": "2009-07-16",
+                "name": "Watch What Happens Live with Andy Cohen",
+                "vote_average": 5,
+                "vote_count": 58,
+                "character": "Self - Guest",
+                "credit_id": "65b7effc8cfcc7017ce6b2fb",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/tNi2aJPdCKfielGYzIi3IKxStz9.jpg",
+                "genre_ids": [
+                    10762,
+                    35
+                ],
+                "id": 502,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Sesame Street",
+                "overview": "On a special inner city street, the inhabitants—human and muppet—teach preschoolers basic educational and social concepts using comedy, cartoons, games, and songs.",
+                "popularity": 975.816,
+                "poster_path": "/14k9BfZ2p4rQBMeJ5crKTfUZVwD.jpg",
+                "first_air_date": "1969-11-10",
+                "name": "Sesame Street",
+                "vote_average": 7.096,
+                "vote_count": 244,
+                "character": "Self",
+                "credit_id": "633b37396beaea007d52610c",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/eDNJVnvhB4BZ3jy5twiME9yrZYD.jpg",
+                "genre_ids": [
+                    35,
+                    18
+                ],
+                "id": 89901,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Dickinson",
+                "overview": "Emily Dickinson. Poet. Daughter. Total rebel. In this coming-of-age story, Emily’s determined to become the world’s greatest poet.",
+                "popularity": 124.884,
+                "poster_path": "/dDdcAfHBZ6Aalv53iR6o35CSLWA.jpg",
+                "first_air_date": "2019-11-01",
+                "name": "Dickinson",
+                "vote_average": 8.546,
+                "vote_count": 916,
+                "character": "Emily Dickinson",
+                "credit_id": "5cf0f424c3a3685e7c20a923",
+                "episode_count": 30
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/5YNhos8hi7ic2zUzn9tHkjBqNPY.jpg",
+                "genre_ids": [
+                    10764
+                ],
+                "id": 68557,
+                "origin_country": [
+                    "GB",
+                    "CZ"
+                ],
+                "original_language": "en",
+                "original_name": "MTV Europe Music Awards",
+                "overview": "The MTV Europe Music Awards \"(EMA)\" were established in 1994 by MTV Networks Europe to celebrate the most popular music videos in Europe. Originally beginning as an alternative to the American MTV Video Music Awards, the MTV Europe Music Awards is today a popular celebration of what MTV viewers consider the best in music. The awards are chosen by MTV viewers throughout Europe. The MTV Europe Music Awards always changes its host city.",
+                "popularity": 47.292,
+                "poster_path": "/zML5BA3UYG4nQ8Cl4NXFQxJC9Vr.jpg",
+                "first_air_date": "1994-11-24",
+                "name": "MTV Europe Music Awards",
+                "vote_average": 10,
+                "vote_count": 1,
+                "character": "Self - Host",
+                "credit_id": "637195f4bf0f63007695acb4",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/6wX6105dCfRqTrwvoQgA8bGxUCo.jpg",
+                "genre_ids": [
+                    35,
+                    10767
+                ],
+                "id": 1220,
+                "origin_country": [
+                    "GB"
+                ],
+                "original_language": "en",
+                "original_name": "The Graham Norton Show",
+                "overview": "Each week celebrity guests join Irish comedian Graham Norton to discuss what's being going on around the world that week. The guests poke fun and share their opinions on the main news stories. Graham is often joined by a band or artist to play the show out.",
+                "popularity": 227.64,
+                "poster_path": "/vrbqaBXB8AALynQzpWz6JdCPEJS.jpg",
+                "first_air_date": "2007-02-22",
+                "name": "The Graham Norton Show",
+                "vote_average": 7.2,
+                "vote_count": 252,
+                "character": "Self",
+                "credit_id": "5de89c31a7e36300167392eb",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/gMMnf8VRg3Z98WaFmOLr9Jk8pIs.jpg",
+                "genre_ids": [
+                    35,
+                    10767
+                ],
+                "id": 63770,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "The Late Show with Stephen Colbert",
+                "overview": "Stephen Colbert brings his signature satire and comedy to The Late Show with Stephen Colbert, the #1 show in late night, where he talks with an eclectic mix of guests about what is new and relevant in the worlds of politics, entertainment, business, music, technology, and more. Featuring bandleader Jon Batiste with his band Stay Human, the Emmy Award-nominated show is broadcast from the historic Ed Sullivan Theater. Stephen Colbert, Chris Licht, Tom Purcell, and Jon Stewart are executive producers. Barry Julien and Denise Rehrig serve as co-executive producers.must watch",
+                "popularity": 774.074,
+                "poster_path": "/9jkThAGYj2yp8jsS6Nriy5mzKFT.jpg",
+                "first_air_date": "2015-09-08",
+                "name": "The Late Show with Stephen Colbert",
+                "vote_average": 6.547,
+                "vote_count": 278,
+                "character": "Self",
+                "credit_id": "5e548ac315959f0015a77eb9",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/1R68vl3d5s86JsS2NPjl8UoMqIS.jpg",
+                "genre_ids": [
+                    18,
+                    35,
+                    10759
+                ],
+                "id": 88329,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Hawkeye",
+                "overview": "Former Avenger Clint Barton has a seemingly simple mission: get back to his family for Christmas. Possible? Maybe with the help of Kate Bishop, a 22-year-old archer with dreams of becoming a superhero. The two are forced to work together when a presence from Barton’s past threatens to derail far more than the festive spirit.",
+                "popularity": 206.526,
+                "poster_path": "/ct5pNE5dDHryHLDnxyZPYcqO1sz.jpg",
+                "first_air_date": "2021-11-24",
+                "name": "Hawkeye",
+                "vote_average": 7.9,
+                "vote_count": 3327,
+                "character": "Kate Bishop",
+                "credit_id": "5fc7e9db3a340b003ee4a162",
+                "episode_count": 6
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/uUy7E499QT7mmefNQGIQ67r0Avt.jpg",
+                "genre_ids": [
+                    35
+                ],
+                "id": 21763,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Sons of Tucson",
+                "overview": "Sons of Tucson is a family comedy about three brothers who hire a charming, wayward schemer to stand in as their father when their real one goes to prison. What begins as a business relationship evolves into something more complex and compelling: a family unlike any we've ever seen. The three brothers find their dad-for-hire, Ron Snuffkin (Tyler Labine), at the local sporting good store. Ron will be forced to draw on a wide array of skills and a vast bag of tricks as he steps into the patriarch role to take care of the boys of the Gunderson family. Robby Gunderson, 8, is a loose cannon who doesn't respond well to authority; Gary Gunderson, 11, is a bright and street-savvy leader who is every bit the con man his father is; and Brandon Gunderson, 13, is a gentle free spirit who simply goes along for the ride. Maggie Morales (Natalie Martinez), Robby's second-grade teacher and the object of Ron's affection, might just be the only stable figure in the lives of this quirky quartet. While Sons of Tucson is grounded in the day-to-day challenges of a single-parent home, nothing in the Gunderson household is quite what it seems. An ongoing chess match between Ron and the boys will keep both parties on their toes, as neither side can afford to give up too much power or independence.",
+                "popularity": 24.119,
+                "poster_path": "/uby1dF8qZQLMnxiwXPCpANq81yL.jpg",
+                "first_air_date": "2010-03-14",
+                "name": "Sons of Tucson",
+                "vote_average": 6.7,
+                "vote_count": 23,
+                "character": "Bethany",
+                "credit_id": "5fe3b23f8a0e9b003e0ba248",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": null,
+                "genre_ids": [
+                    35
+                ],
+                "id": 5540,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Back to You",
+                "overview": "Back to You is an American situation comedy series, which aired on Fox from September 19, 2007 to May 14, 2008. The creators and executive producers were Christopher Lloyd and Steven Levitan, and the director was James Burrows. The series starred Kelsey Grammer and Patricia Heaton as squabbling anchors of a news program.",
+                "popularity": 21.309,
+                "poster_path": "/csGDLzcZA9XsmzSzfFMUzjOeSdQ.jpg",
+                "first_air_date": "2007-09-19",
+                "name": "Back to You",
+                "vote_average": 5.6,
+                "vote_count": 11,
+                "character": "Little Girl",
+                "credit_id": "5fe3b1a970309f003e7fccaa",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/qLjfvVsup0R4FS8Hp1dza5J70QK.jpg",
+                "genre_ids": [
+                    10764,
+                    35
+                ],
+                "id": 62313,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Lip Sync Battle",
+                "overview": "Each episode features two A-list celebrities like you've never seen them before - syncing their hearts out in hysterically epic performances. Hosted by LL Cool J with colorful commentary by social media maven and supermodel co-host, Chrissy Teigen. The mic is off, the battle is on!",
+                "popularity": 97.118,
+                "poster_path": "/AYmEExaBgjiEIwrLPb7AoH4nqy.jpg",
+                "first_air_date": "2015-04-02",
+                "name": "Lip Sync Battle",
+                "vote_average": 6.369,
+                "vote_count": 107,
+                "character": "Herself",
+                "credit_id": "5ff40b5d7ef3810040d82320",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/sjmrwVdhUEz7apAzKXQ5u5mDpLi.jpg",
+                "genre_ids": [
+                    10764
+                ],
+                "id": 39845,
+                "origin_country": [
+                    "AU"
+                ],
+                "original_language": "en",
+                "original_name": "The Voice",
+                "overview": "Contestants compete in a singing competition that focuses on the quality of their voice.",
+                "popularity": 119.176,
+                "poster_path": "/t79aBTcPC4vEeeDMv8cWE9tnVwe.jpg",
+                "first_air_date": "2012-04-15",
+                "name": "The Voice",
+                "vote_average": 6,
+                "vote_count": 23,
+                "character": "Hailee Steinfeld",
+                "credit_id": "5ff6f50dfdc4fa0041cbc9f4",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/sYXLeu5usz6yEz0k00FYvtEdodD.jpg",
+                "genre_ids": [
+                    16,
+                    10765,
+                    18,
+                    10759
+                ],
+                "id": 94605,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Arcane",
+                "overview": "Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.",
+                "popularity": 481.827,
+                "poster_path": "/abf8tHznhSvl9BAElD2cQeRr7do.jpg",
+                "first_air_date": "2021-11-06",
+                "name": "Arcane",
+                "vote_average": 8.776,
+                "vote_count": 4728,
+                "character": "Self",
+                "credit_id": "67345705916a0c170096517f",
+                "episode_count": 3
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/ou1bLjE6ecN1sKA64aCYMKQQPqR.jpg",
+                "genre_ids": [
+                    16,
+                    10765
+                ],
+                "id": 138505,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Marvel Zombies",
+                "overview": "The Marvel Universe is reimagined as a new generation of heroes battle against an ever-spreading zombie scourge.",
+                "popularity": 22.798,
+                "poster_path": "/jmGjVKBNxaQD2l0e4Jz5RbguRre.jpg",
+                "first_air_date": "2025-10-03",
+                "name": "Marvel Zombies",
+                "vote_average": 0,
+                "vote_count": 0,
+                "character": "Kate Bishop (voice)",
+                "credit_id": "6737176dff85881393a0d40f",
+                "episode_count": 4
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/riAGbIUpWdLJckBdI8McejwqLG5.jpg",
+                "genre_ids": [
+                    10767
+                ],
+                "id": 105197,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Variety Studio: Actors on Actors",
+                "overview": "PBS SoCal and Variety take you inside the biggest movies and TV shows of the past year through candid conversations with today's hottest actors. Hosted by Variety Film Awards Editor Clayton Davis and Variety Chief Correspondent Elizabeth Wagmeister, each episode brings together pairs of actors engaging in intimate one-on-one discussions about their craft and work.",
+                "popularity": 174.072,
+                "poster_path": "/pgWZXYG0gTKkwRH9pTxoscFmq4H.jpg",
+                "first_air_date": "2014-12-21",
+                "name": "Variety Studio: Actors on Actors",
+                "vote_average": 4.4,
+                "vote_count": 7,
+                "character": "Self",
+                "credit_id": "675f715075bd2f3e19279797",
+                "episode_count": 1
+            },
+            {
+                "adult": false,
+                "backdrop_path": "/4N6zEMfZ57zNEQcM8gWeERFupMv.jpg",
+                "genre_ids": [
+                    16,
+                    10759,
+                    10765
+                ],
+                "id": 91363,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "What If...?",
+                "overview": "Taking inspiration from the comic books of the same name, each episode of this animated anthology series questions, revisits and twists classic Marvel Cinematic moments.",
+                "popularity": 526.45,
+                "poster_path": "/lztz5XBMG1x6Y5ubz7CxfPFsAcW.jpg",
+                "first_air_date": "2021-08-11",
+                "name": "What If...?",
+                "vote_average": 8.129,
+                "vote_count": 4263,
+                "character": "Kate Bishop (voice)",
+                "credit_id": "676e6a604ca2fbbfca6165b7",
+                "episode_count": 1
+            }
+        ],
+        "crew": [
+            {
+                "adult": false,
+                "backdrop_path": "/eDNJVnvhB4BZ3jy5twiME9yrZYD.jpg",
+                "genre_ids": [
+                    35,
+                    18
+                ],
+                "id": 89901,
+                "origin_country": [
+                    "US"
+                ],
+                "original_language": "en",
+                "original_name": "Dickinson",
+                "overview": "Emily Dickinson. Poet. Daughter. Total rebel. In this coming-of-age story, Emily’s determined to become the world’s greatest poet.",
+                "popularity": 124.884,
+                "poster_path": "/dDdcAfHBZ6Aalv53iR6o35CSLWA.jpg",
+                "first_air_date": "2019-11-01",
+                "name": "Dickinson",
+                "vote_average": 8.546,
+                "vote_count": 916,
+                "credit_id": "5f7f55352f3b170035f3b360",
+                "department": "Production",
+                "episode_count": 30,
+                "job": "Executive Producer"
+            }
+        ]
+    }
+}

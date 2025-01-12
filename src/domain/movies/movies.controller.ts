@@ -3,6 +3,7 @@ import { MoviesService } from './movies.service';
 import { SearchQuery } from './request/search.query';
 import { TrendingParam } from './request/trending.param';
 import { PagingQuery } from '../common/dto/paging.query';
+import { MovieIdParam } from './request/movie-id.param';
 
 @Controller('movies')
 export class MoviesController {
@@ -34,12 +35,12 @@ export class MoviesController {
     }
 
     @Get('cast/:movie_id')
-    async getCast(@Param('movie_id') movie_id: number) {
-        return await this.moviesService.getMovieCast(movie_id);
+    async getCast(@Param() param: MovieIdParam) {
+        return await this.moviesService.getMovieCast(param.movie_id);
     }
 
-    @Get(':id')
-    async getMovieDetail(@Param('id') id: number) {
-        return await this.moviesService.getMovieDetail(id);
+    @Get(':movie_id')
+    async getMovieDetail(@Param() param: MovieIdParam) {
+        return await this.moviesService.getMovieDetail(param.movie_id);
     }
 }

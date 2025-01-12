@@ -11,6 +11,8 @@ import { UsersModule } from './domain/users/users.module';
 import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from './common/const';
 import { ReviewsModule } from './domain/reviews/reviews.module';
 import { GenresModule } from './domain/genres/genres.module';
+import { PeopleController } from './domain/people/people.controller';
+import { PeopleService } from './domain/people/people.service';
 import { PeopleModule } from './domain/people/people.module';
 
 @Module({

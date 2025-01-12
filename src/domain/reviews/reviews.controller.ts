@@ -2,6 +2,8 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ReviewsService } from './reviews.service';
 import { AddReviewBody } from './request/add-review.body';
 import { AddReviewParam } from './request/add-review.param';
+import { ReviewIdParam } from './request/review-id.param';
+import { MovieIdParam } from '../movies/request/movie-id.param';
 
 @Controller('reviews')
 export class ReviewsController {
@@ -10,7 +12,7 @@ export class ReviewsController {
     ) { }
 
     @Get(':movie_id')
-    async getReviews(@Param() param: { movie_id: number }) {
+    async getReviews(@Param() param: MovieIdParam) {
         return this.reviewsService.getReviews(param.movie_id);
     }
 
@@ -26,7 +28,7 @@ export class ReviewsController {
     }
 
     @Post('delete/:review_id')
-    async deleteReview(@Param() param: { review_id: string }) {
+    async deleteReview(@Param() param: ReviewIdParam) {
         return this.reviewsService.deleteReview(param.review_id);
     }
 }
