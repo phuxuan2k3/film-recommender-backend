@@ -23,6 +23,9 @@ export class PeopleService {
         const doc = await this.peopleModel
             .findOne({ id: people_id }, { movie_credits: 1 })
             .lean();
+        if (doc != null || doc.movie_credits != null || doc.movie_credits.cast != null) {
+            return [];
+        }
         return doc.movie_credits.cast;
     }
 }
