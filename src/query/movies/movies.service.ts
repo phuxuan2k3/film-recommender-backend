@@ -135,7 +135,7 @@ export class MoviesService {
             .exec();
         if (doc == null) return null;
         return {
-            ...doc,
+            ...doc.toObject(),
             belongs_to_collection: doc.belongs_to_collection ? doc.belongs_to_collection.name : null
         } as MovieMediumPresenter;
     }

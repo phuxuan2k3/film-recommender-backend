@@ -10,6 +10,7 @@ import { MoviesModule } from './query/movies/movies.module';
 import { UsersModule } from './query/users/users.module';
 import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from './common/const';
 import { ReviewsModule } from './query/reviews/reviews.module';
+import { GenresModule } from './query/genres/genres.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { ReviewsModule } from './query/reviews/reviews.module';
     MoviesModule,
     UsersModule,
     ReviewsModule,
+    GenresModule,
   ],
   controllers: [AppController],
   providers: [AppService],
