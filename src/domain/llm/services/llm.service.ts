@@ -1,33 +1,28 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { baseLLMUrl } from 'src/common/env';
-import { SearchQuery } from '../../movies/request/search.query';
+import { baseLLMUrl, GEMINI_API_KEY } from 'src/common/env';
 import { LLMSearchQuery as LLMSearchQuery } from '../param/llm-search.query';
-import { query } from 'express';
 import { NavigateBody } from '../param/navigate.body';
 import { MoviesLLMService } from './movies-llm.service';
 import { PagingResult } from 'src/domain/common/dto/paging.result';
-import { PagingQuery } from 'src/domain/common/dto/paging.query';
 import { MovieSmallPresenter } from 'src/domain/movies/response/movies-small.presenter';
 import { AxiosError } from 'axios';
 import { RoutePresenter } from '../presenter/route-presenter';
 import { routeToURL } from '../utils/route-handler';
+import { firstValueFrom } from 'rxjs';
 
 const healthyUrl = baseLLMUrl + '/healthy';
-const retrieverUrl = baseLLMUrl + '/retriever';
-const navigateUrl = baseLLMUrl + '/navigate';
+const retrieverUrl = baseLLMUrl + '/retriever/';
+const navigateUrl = baseLLMUrl + '/navigate/';
 
 const movies_collection = 'movies';
 
 @Injectable()
 export class LlmService {
-    private readonly apiKey: string;
     constructor(
         private readonly httpService: HttpService,
         private readonly llmMoviesService: MoviesLLMService
-    ) {
-        this.apiKey = process.env.LLM_API_KEY;
-    }
+    ) { }
 
     async ping() {
         return (await this.httpService.axiosRef.get(healthyUrl)).data;
@@ -36,9 +31,11 @@ export class LlmService {
     async llmQuerySearchMovies(query: LLMSearchQuery): Promise<PagingResult<MovieSmallPresenter>> {
         const response = (await this.httpService.axiosRef.get(retrieverUrl, {
             params: {
-                llm_api_key: this.apiKey,
+                llm_api_key: GEMINI_API_KEY,
                 collection_name: movies_collection,
-                ...query,
+                query: query.query,
+                amount: query.amount,
+                threshold: query.threshold
             }
         }).catch(err => {
             if (err instanceof AxiosError) {
@@ -60,17 +57,21 @@ export class LlmService {
         };
     }
 
-    async llmNavigate(param: NavigateBody): Promise<string> {
-        const response = (await this.httpService.axiosRef.post(navigateUrl, {
-            llm_api_key: this.apiKey,
-            ...param
-        }).catch(err => {
+    async llmNavigate(body: NavigateBody): Promise<string> {
+        try {
+            const response = await firstValueFrom(this.httpService.post(navigateUrl, null, {
+                params: {
+                    llm_api_key: GEMINI_API_KEY,
+                    query: body.query,
+                }
+            }));
+            const route_presenter = response.data.data as RoutePresenter;
+            return routeToURL(route_presenter);
+        } catch (err) {
             if (err instanceof AxiosError) {
                 throw new Error('axios: ' + err.message);
             }
             throw new Error('Unknown error');
-        }));
-        const route_presenter = response.data.data as RoutePresenter;
-        return routeToURL(route_presenter);
+        }
     }
 }

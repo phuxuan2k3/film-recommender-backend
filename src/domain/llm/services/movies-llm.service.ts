@@ -1,6 +1,6 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
-import { Model } from "mongoose";
+import mongoose, { Model, Types } from "mongoose";
 import { LLM_CONNECTION_NAME, MOVIES_CONNECTION_NAME } from "src/common/const";
 import { MoviesExportService } from "src/domain/movies/exports/movie-export.service";
 import { MoviesService } from "src/domain/movies/movies.service";
@@ -15,9 +15,15 @@ export class MoviesLLMService {
         private readonly moviesExportService: MoviesExportService
     ) { }
 
-    async transferMovies(mongo_id: string[]): Promise<MovieSmallPresenter[]> {
+    async transferMovies(mongo_ids: string[]): Promise<MovieSmallPresenter[]> {
+        const objectIds = mongo_ids.map((id) => {
+            if (!Types.ObjectId.isValid(id)) {
+                throw new NotFoundException(`Invalid ID: ${id}`);
+            }
+            return Types.ObjectId.createFromHexString(id);
+        });
         const llmMovies = await this.movieModel
-            .find({ _id: { $in: mongo_id } })
+            .find({ _id: { $in: objectIds } })
             .select({ _id: 0, id: 1 })
             .lean();
         const ids = llmMovies.map(m => m.id);

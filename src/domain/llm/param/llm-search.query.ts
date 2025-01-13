@@ -1,3 +1,4 @@
+import { Type } from "class-transformer";
 import { IsInt, IsNumber, IsOptional, IsString, Max, MaxLength, Min } from "class-validator";
 import { PagingQuery } from "src/domain/common/dto/paging.query";
 
@@ -8,14 +9,16 @@ export class LLMSearchQuery extends PagingQuery {
 
     @IsNumber()
     @IsOptional()
+    @Type(() => Number)
     @IsInt()
     @Max(100)
     @Min(2)
-    threshold?: number = 100;
+    amount?: number = 100;
 
     @IsNumber()
     @IsOptional()
+    @Type(() => Number)
     @Max(1)
     @Min(0)
-    amount?: number = 0.25;
+    threshold?: number = 0.25;
 }
