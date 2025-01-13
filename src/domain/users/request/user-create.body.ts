@@ -1,25 +1,35 @@
-import { IsEmail, IsPhoneNumber, IsString } from "class-validator";
+import { IsEmail, IsOptional, IsPhoneNumber, IsString } from "class-validator";
 
 export class UserCreateBody {
     @IsString()
-    first_name: string;
+    @IsOptional()
+    first_name: string | null;
 
     @IsString()
-    last_name: string;
+    @IsOptional()
+    last_name: string | null;
 
     @IsString()
     @IsEmail()
-    email: string;
+    @IsOptional()
+    email: string | null;
 
     @IsString()
-    phone: string;
+    @IsOptional()
+    phone: string | null;
 
     @IsString()
-    country: string;
+    @IsOptional()
+    country: string | null;
 
     @IsString()
-    address: string;
+    @IsOptional()
+    address: string | null;
 
     @IsString()
-    avatar_path: string;
+    @IsOptional()
+    avatar_path: string | null;
+
+    @IsOptional()
+    role: number | null;
 }
