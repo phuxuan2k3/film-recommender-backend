@@ -65,7 +65,6 @@ export class AuthService {
   async signInWithGoogle(idToken: string) {
     try {
       const decodedToken = await this.firebaseAuthService.verifyIdToken(idToken);
-      console.log(decodedToken);
       const jwt = this.jwtService.sign({ email: decodedToken.email, firstName: decodedToken.name, lastName: 'nguyen' });
 
       const res = {
@@ -133,8 +132,6 @@ export class AuthService {
   async logOut() {
     try {
       await signOut(this.auth);
-      console.log('logout');
-
       return { message: 'Log out successfully!' };
     } catch (error) {
       const errorMessage = error.message;
