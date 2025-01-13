@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { LlmService } from './services/llm.service';
 import { LLMSearchQuery } from './param/llm-search.query';
 import { NavigateBody } from './param/navigate.body';
@@ -22,5 +22,10 @@ export class LlmController {
     @Post('navigate')
     async navigate(@Body() body: NavigateBody) {
         return this.llmService.llmNavigate(body);
+    }
+
+    @Get('similar/:movie_id')
+    async similar(@Param('movie_id') movie_id: string) {
+        return await this.llmService.getBasicSimilar(+movie_id);
     }
 }

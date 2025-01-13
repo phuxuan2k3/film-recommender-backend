@@ -1,0 +1,107 @@
+{
+    "_id": {
+        "$oid": "6769145ac65ce6e47e020825"
+    },
+    "tmdb_id": 558449,
+    "similar_movies": [
+        {
+            "adult": false,
+            "backdrop_path": "/kb6WjmJh3QDrl5Z3gpC7EtZ8oXn.jpg",
+            "genre_ids": [
+                10751,
+                12
+            ],
+            "id": 24883,
+            "original_language": "en",
+            "original_title": "The Black Stallion Returns",
+            "overview": "\"Black\" is a stunning fire-and-silk stallion celebrated the world over. But to his young American owner, Alec Ramsay, he's much more. So, when the amazing animal is stolen, Alec will stop at nothing to get him back. Alec finally unravels the mystery of Black's theft...only to discover that he must overcome even greater odds to reclaim his beloved horse.",
+            "popularity": 8.437,
+            "poster_path": "/bozQVxJLeHMXMdfY76YLSAwVQBI.jpg",
+            "release_date": "1983-03-25",
+            "title": "The Black Stallion Returns",
+            "video": false,
+            "vote_average": 6.4,
+            "vote_count": 55
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/s9eUPXwow8SRWLvQHgVPnufvveo.jpg",
+            "genre_ids": [
+                28,
+                27,
+                10770
+            ],
+            "id": 24935,
+            "original_language": "en",
+            "original_title": "Return of the Living Dead: Necropolis",
+            "overview": "In an attempt to rescue their friend from an evil corporation, a group of teenagers end up releasing a horde of bloodthirsty zombies.",
+            "popularity": 16.122,
+            "poster_path": "/c6w4su69KcS5FGjDS7Gj3p6tYGZ.jpg",
+            "release_date": "2005-10-15",
+            "title": "Return of the Living Dead: Necropolis",
+            "video": false,
+            "vote_average": 5.222,
+            "vote_count": 241
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/rVvmHuoP02sjBMumip9BalBarop.jpg",
+            "genre_ids": [
+                28,
+                27,
+                10770
+            ],
+            "id": 24939,
+            "original_language": "en",
+            "original_title": "Return of the Living Dead: Rave to the Grave",
+            "overview": "A student creates and sells a drug called 'Z' which has the unexpected side effect of resurrecting the dead as flesh-eating zombies, who proceed to wreak havoc at a Halloween rave.",
+            "popularity": 12.727,
+            "poster_path": "/f91aC7oOAhD1OejJRbHvN83d80T.jpg",
+            "release_date": "2005-10-15",
+            "title": "Return of the Living Dead: Rave to the Grave",
+            "video": false,
+            "vote_average": 5.212,
+            "vote_count": 208
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/v5Zb0mwoc9VY2JHvAp3WnD9xSyD.jpg",
+            "genre_ids": [
+                35,
+                18,
+                10770,
+                14
+            ],
+            "id": 428902,
+            "original_language": "fr",
+            "original_title": "Coincoin et les Z'inhumains",
+            "overview": "A sequel to “Li’l Quinquin”. When a strange magma is found near Coincoin’s home town, the inhabitants suddenly start to behave strangely. Goofy detective Captain Van Der Weyden and his loyal assistant Carpentier set about investigating these alien attacks, discovering that an extra-terrestrial invasion has begun.",
+            "popularity": 1.33,
+            "poster_path": "/7gjK9Yc8rLb5vozKomki6n9p3dk.jpg",
+            "release_date": "2018-10-08",
+            "title": "CoinCoin and the Extra-Humans",
+            "video": false,
+            "vote_average": 6.9,
+            "vote_count": 22
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/4ifPpmTPKep4Q9CA2uFILpNrynM.jpg",
+            "genre_ids": [
+                36,
+                18
+            ],
+            "id": 24973,
+            "original_language": "en",
+            "original_title": "The Egyptian",
+            "overview": "In eighteenth-dynasty Egypt, Sinuhe, a poor orphan, becomes a brilliant physician and with his friend Horemheb is appointed to the service of the new Pharoah. Sinuhe's personal triumphs and tragedies are played against the larger canvas of the turbulent events of the 18th dynasty. As Sinuhe is drawn into court intrigues he learns the answers to the questions he has sought since his birth.",
+            "popularity": 13.671,
+            "poster_path": "/vYLY2YIGCWINPSzLg6tBiN6ub7X.jpg",
+            "release_date": "1954-08-25",
+            "title": "The Egyptian",
+            "video": false,
+            "vote_average": 6.4,
+            "vote_count": 89
+        }
+    ]
+}

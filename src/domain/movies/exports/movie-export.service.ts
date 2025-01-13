@@ -28,4 +28,13 @@ export class MoviesExportService {
             .lean();
         return doc;
     }
+
+    async getFirstMovieByGenre(genre_id: number): Promise<MovieSmallPresenter> {
+        const docs = await this.movieModel
+            .findOne({
+                genres: { $elemMatch: { id: genre_id } }
+            }, MovieSmallPresenter.getProjection())
+            .lean();
+        return docs;
+    }
 }

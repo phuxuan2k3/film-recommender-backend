@@ -9,7 +9,12 @@ import { MovieSmallPresenter } from 'src/domain/movies/response/movies-small.pre
 import { AxiosError } from 'axios';
 import { RoutePresenter } from '../presenter/route-presenter';
 import { firstValueFrom } from 'rxjs';
-import { RouteHandlerService } from './route-handler';
+import { RouteHandlerService } from './route-handler.service';
+import { InjectModel } from '@nestjs/mongoose';
+import { Similar } from '../schemas/similar.schema';
+import { LLM_CONNECTION_NAME } from 'src/common/const';
+import { Model } from 'mongoose';
+import { MoviesExportService } from 'src/domain/movies/exports/movie-export.service';
 
 const healthyUrl = baseLLMUrl + '/healthy';
 const retrieverUrl = baseLLMUrl + '/retriever/';
@@ -22,7 +27,10 @@ export class LlmService {
     constructor(
         private readonly httpService: HttpService,
         private readonly llmMoviesService: MoviesLLMService,
-        private readonly llmRouteHandlerService: RouteHandlerService
+        private readonly llmRouteHandlerService: RouteHandlerService,
+        private readonly exportMovieService: MoviesExportService,
+
+        @InjectModel(Similar.name, LLM_CONNECTION_NAME) private similarModel: Model<Similar>
     ) { }
 
     async ping() {
@@ -74,5 +82,15 @@ export class LlmService {
             }
             throw new Error('Unknown error');
         }
+    }
+
+    async getBasicSimilar(tmdb_id: number): Promise<MovieSmallPresenter[]> {
+        const similar = await this.similarModel.findOne({ tmdb_id: tmdb_id }).lean();
+        if (!similar) {
+            return [];
+        }
+        const ids = similar.similar_movies.map(m => m.id);
+        const movies = await this.exportMovieService.getMovieByIds(ids);
+        return movies;
     }
 }

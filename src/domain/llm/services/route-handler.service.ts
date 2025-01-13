@@ -1,6 +1,10 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { RoutePresenter } from "../presenter/route-presenter";
 import { MoviesExportService } from "src/domain/movies/exports/movie-export.service";
+import { InjectModel } from "@nestjs/mongoose";
+import { Genre } from "src/domain/genres/genres.schema";
+import { LLM_CONNECTION_NAME } from "src/common/const";
+import { Model } from "mongoose";
 
 enum PageEnum {
     HOME_PAGE = 'HOME_PAGE',
@@ -15,10 +19,11 @@ enum PageEnum {
 @Injectable()
 export class RouteHandlerService {
     constructor(
-        private readonly moviesExportService: MoviesExportService
+        private readonly moviesExportService: MoviesExportService,
+        @InjectModel(Genre.name, LLM_CONNECTION_NAME) private genreModel: Model<Genre>
     ) { }
 
-    routeToURL(route: RoutePresenter): string {
+    async routeToURL(route: RoutePresenter): Promise<string> {
         switch (route.route) {
             case PageEnum.NONE:
                 return null;
@@ -33,11 +38,20 @@ export class RouteHandlerService {
             case PageEnum.MOVIE_PAGE:
                 if (route.params?.movie_ids && route.params?.movie_ids.length > 0) {
                     const movie_id = route.params.movie_ids[0];
-                    const id = this.moviesExportService.getMovieById(movie_id);
-                    return `/movies/:${id}`;
+                    const movie = await this.moviesExportService.getMovieById(movie_id);
+                    return `/movies/:${movie.id}`;
                 }
                 return null;
             case PageEnum.GENRE_PAGE:
+                // if (route.params?.genre_ids && route.params?.genre_ids.length > 0) {
+                //     const genre_id = route.params.genre_ids[0];
+                //     const genre = await this.genreModel.findOne({ _id: genre_id }).lean();
+                //     if (!genre) {
+                //         return null;
+                //     }
+                //     const movie = await this.moviesExportService.getFirstMovieByGenre(genre.id);
+                //     return `/movies/:${movie.id}`;
+                // }
                 return null;
             default:
                 return null;

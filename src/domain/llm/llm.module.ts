@@ -7,6 +7,9 @@ import { Movie, MovieSchema } from '../movies/schemas/movies.schema';
 import { LLM_CONNECTION_NAME } from 'src/common/const';
 import { MoviesModule } from '../movies/movies.module';
 import { MoviesLLMService } from './services/movies-llm.service';
+import { RouteHandlerService } from './services/route-handler.service';
+import { Genre, GenreSchema } from '../genres/genres.schema';
+import { Similar, SimilarSchema } from './schemas/similar.schema';
 
 @Module({
   imports: [
@@ -16,7 +19,9 @@ import { MoviesLLMService } from './services/movies-llm.service';
     }),
 
     MongooseModule.forFeature([
-      { name: Movie.name, schema: MovieSchema }
+      { name: Movie.name, schema: MovieSchema },
+      { name: Genre.name, schema: GenreSchema },
+      { name: Similar.name, schema: SimilarSchema }
     ], LLM_CONNECTION_NAME),
 
     MoviesModule
@@ -24,7 +29,8 @@ import { MoviesLLMService } from './services/movies-llm.service';
   controllers: [LlmController],
   providers: [
     LlmService,
-    MoviesLLMService
+    MoviesLLMService,
+    RouteHandlerService
   ]
 })
 export class LlmModule { }
