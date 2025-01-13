@@ -8,8 +8,8 @@ import { PagingResult } from 'src/domain/common/dto/paging.result';
 import { MovieSmallPresenter } from 'src/domain/movies/response/movies-small.presenter';
 import { AxiosError } from 'axios';
 import { RoutePresenter } from '../presenter/route-presenter';
-import { routeToURL } from '../utils/route-handler';
 import { firstValueFrom } from 'rxjs';
+import { RouteHandlerService } from './route-handler';
 
 const healthyUrl = baseLLMUrl + '/healthy';
 const retrieverUrl = baseLLMUrl + '/retriever/';
@@ -21,7 +21,8 @@ const movies_collection = 'movies';
 export class LlmService {
     constructor(
         private readonly httpService: HttpService,
-        private readonly llmMoviesService: MoviesLLMService
+        private readonly llmMoviesService: MoviesLLMService,
+        private readonly llmRouteHandlerService: RouteHandlerService
     ) { }
 
     async ping() {
@@ -66,7 +67,7 @@ export class LlmService {
                 }
             }));
             const route_presenter = response.data.data as RoutePresenter;
-            return routeToURL(route_presenter);
+            return this.llmRouteHandlerService.routeToURL(route_presenter);
         } catch (err) {
             if (err instanceof AxiosError) {
                 throw new Error('axios: ' + err.message);

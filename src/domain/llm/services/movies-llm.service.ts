@@ -30,4 +30,17 @@ export class MoviesLLMService {
         const movies = await this.moviesExportService.getMovieByIds(ids);
         return movies;
     }
+
+    async getMovieByMongoId(mongo_id: string): Promise<MovieSmallPresenter> {
+        const objectId = Types.ObjectId.createFromHexString(mongo_id);
+        const llmMovie = await this.movieModel
+            .findOne({ _id: objectId })
+            .select({ _id: 0, id: 1 })
+            .lean();
+        if (!llmMovie) {
+            return null;
+        }
+        const movie = await this.moviesExportService.getMovieById(llmMovie.id);
+        return movie;
+    }
 }

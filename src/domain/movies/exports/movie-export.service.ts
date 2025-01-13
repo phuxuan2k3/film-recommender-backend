@@ -19,4 +19,13 @@ export class MoviesExportService {
             .lean();
         return docs;
     }
+
+    async getMovieById(id: number): Promise<MovieSmallPresenter> {
+        const doc = await this.movieModel
+            .findOne({
+                id: id
+            }, MovieSmallPresenter.getProjection())
+            .lean();
+        return doc;
+    }
 }
