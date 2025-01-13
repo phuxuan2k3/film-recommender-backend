@@ -6,7 +6,6 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from 'src/user/user.service';
-import * as bcryptjs from 'bcryptjs';
 import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { FirebaseAdminService } from 'config/firebase';
 import {
@@ -15,12 +14,12 @@ import {
   signOut,
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,
   Auth,
-  signInWithCustomToken,
+  signInWithCredential,
 } from 'firebase/auth';
 import { FirebaseApp } from 'firebase/app';
-import axios from 'axios';
+import { FirebaseAuthService } from 'src/firebase-auth/firebase-auth.service';
+
 
 @Injectable()
 export class AuthService {
@@ -32,6 +31,7 @@ export class AuthService {
     private userService: UserService,
     private jwtService: JwtService,
     private firebaseService: FirebaseAdminService,
+    private firebaseAuthService: FirebaseAuthService,
   ) {
     this.authen = this.firebaseService.connect();
     this.auth = getAuth(this.authen);
@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   async signIn(userData: CreateUserDto) {
-    let res: { message: string };
+    let res: any;
     try {
       const userCredential = await signInWithEmailAndPassword(
         this.auth,
@@ -48,7 +48,11 @@ export class AuthService {
         userData.password,
       );
       const user = userCredential.user;
-      res = { message: 'Log in successfully!' };
+
+      //xtodo: get user from database 
+      const jwt = this.jwtService.sign({ email: user.email, firstName: 'xuan', lastName: 'nguyen' });
+
+      res = { email: user.email, token: jwt, firstName: 'xuan', lastName: 'nguyen' };
     } catch (error) {
       const errorMessage = error.message;
       res = { message: errorMessage };
@@ -60,43 +64,54 @@ export class AuthService {
 
   async signInWithGoogle(idToken: string) {
     try {
-      const response = await axios.get(
-        `https://oauth2.googleapis.com/tokeninfo?id_token=${idToken}`,
-      );
-      const payload = response.data;
-      const { email, name, picture, sub: googleUid } = payload;
-      try {
-        const userCredential = await signInWithCustomToken(this.auth, idToken);
-        return {
-          token: await userCredential.user.getIdToken(),
-          user: {
-            email: userCredential.user.email,
-            displayName: userCredential.user.displayName,
-            photoURL: userCredential.user.photoURL,
-          },
-        };
-      } catch {
-        // Create a new user if they don't exist
-        const newUser = await createUserWithEmailAndPassword(
-          this.auth,
-          email,
-          googleUid,
-        );
-        return {
-          token: await newUser.user.getIdToken(),
-          user: {
-            email: newUser.user.email,
-            displayName: name,
-            photoURL: picture,
-          },
-        };
+      const decodedToken = await this.firebaseAuthService.verifyIdToken(idToken);
+      console.log(decodedToken);
+      const jwt = this.jwtService.sign({ email: decodedToken.email, firstName: decodedToken.name, lastName: 'nguyen' });
+
+      const res = {
+        token: jwt,
+        firstName: decodedToken.name, lastName: 'nguyen'
       }
+
+      return res;
+
+      //     const response = await axios.get(
+      //       `https://oauth2.googleapis.com/tokeninfo?id_token=${idToken}`,
+      //     );
+      //     const payload = response.data;
+      //     const { email, name, picture, sub: googleUid } = payload;
+      //     try {
+      //       const userCredential = await signInWithCustomToken(this.auth, idToken);
+      //       return {
+      //         token: await userCredential.user.getIdToken(),
+      //         user: {
+      //           email: userCredential.user.email,
+      //           displayName: userCredential.user.displayName,
+      //           photoURL: userCredential.user.photoURL,
+      //         },
+      //       };
+      //     } catch {
+      //       // Create a new user if they don't exist
+      //       const newUser = await createUserWithEmailAndPassword(
+      //         this.auth,
+      //         email,
+      //         googleUid,
+      //       );
+      //       return {
+      //         token: await newUser.user.getIdToken(),
+      //         user: {
+      //           email: newUser.user.email,
+      //           displayName: name,
+      //           photoURL: picture,
+      //         },
+      //       };
+      //     }
     } catch (error) {
       throw new UnauthorizedException('Invalid Google ID Token');
     }
   }
 
-  async signUp(userData: CreateUserDto): Promise<{ message: string }> {
+  async signUp(userData: CreateUserDto) {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         this.auth,
@@ -104,19 +119,22 @@ export class AuthService {
         userData.password,
       );
       const user = userCredential.user;
-      console.log('ok', user);
+      const jwt = this.jwtService.sign({ email: user.email, firstName: 'xuan', lastName: 'nguyen' });
+      const res = { email: user.email, token: jwt, firstName: 'xuan', lastName: 'nguyen' };
 
-      return { message: 'User registered successfully!' };
+      return res;
     } catch (error) {
       const errorMessage = error.message;
       console.log('error', errorMessage);
-      return { message: errorMessage };
+      throw new HttpException(errorMessage, HttpStatus.BAD_REQUEST);
     }
   }
 
   async logOut() {
     try {
       await signOut(this.auth);
+      console.log('logout');
+
       return { message: 'Log out successfully!' };
     } catch (error) {
       const errorMessage = error.message;

@@ -5,8 +5,7 @@ import { Public } from './auth/public';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-  @Public()
+  constructor(private readonly appService: AppService) { }
   @Get()
   getHello(): string {
     return this.appService.getHello();

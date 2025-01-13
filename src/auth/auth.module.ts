@@ -7,6 +7,9 @@ import { JwtModule } from '@nestjs/jwt';
 // import { AuthGuard } from './auth.guard';
 import { FirebaseAdminService } from 'config/firebase';
 import { firebaseConfig } from 'config/firebase.config';
+import * as dotenv from 'dotenv';
+import { FirebaseAdminModule } from 'src/firebase-admin/firebase-admin.module';
+dotenv.config();
 
 @Module({
   imports: [
@@ -16,6 +19,7 @@ import { firebaseConfig } from 'config/firebase.config';
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '1h' },
     }),
+    FirebaseAdminModule,
   ],
   controllers: [AuthController],
   providers: [
@@ -32,4 +36,4 @@ import { firebaseConfig } from 'config/firebase.config';
   ],
   exports: [AuthService],
 })
-export class AuthModule {}
+export class AuthModule { }
