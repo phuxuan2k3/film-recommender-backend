@@ -1,6 +1,7 @@
 // src/firebase-admin/firebase-admin.module.ts
 import { Module, Global } from '@nestjs/common';
 import * as admin from 'firebase-admin';
+import { EmailService } from 'src/email/email.service';
 import { FirebaseAuthService } from 'src/firebase-auth/firebase-auth.service';
 
 @Global()
@@ -20,6 +21,7 @@ import { FirebaseAuthService } from 'src/firebase-auth/firebase-auth.service';
       },
     },
     FirebaseAuthService,
+    EmailService,
   ],
   exports: ['FIREBASE_ADMIN', FirebaseAuthService],
 })
