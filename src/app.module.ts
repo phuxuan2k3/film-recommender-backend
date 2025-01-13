@@ -13,6 +13,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { FirebaseAdminModule } from './firebase-admin/firebase-admin.module';
 import { FirebaseAuthService } from './firebase-auth/firebase-auth.service';
+import { EmailService } from './email/email.service';
 
 @Module({
   imports: [
@@ -39,6 +40,7 @@ import { FirebaseAuthService } from './firebase-auth/firebase-auth.service';
   providers: [AppService, {
     provide: APP_GUARD,
     useClass: AuthGuard,
-  }, FirebaseAuthService,],
+  }, FirebaseAuthService,
+    EmailService],
 })
 export class AppModule { }
