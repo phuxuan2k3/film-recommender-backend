@@ -39,6 +39,11 @@ export class MoviesController {
         return await this.moviesService.getMovieCast(param.movie_id);
     }
 
+    @Get('reviews/:movie_id')
+    async getReviews(@Param() param: MovieIdParam) {
+        return await this.moviesService.getMovieReviews(param.movie_id);
+    }
+
     @Get(':movie_id')
     async getMovieDetail(@Param() param: MovieIdParam) {
         return await this.moviesService.getMovieDetail(param.movie_id);

@@ -15,6 +15,8 @@ import { MoviesPopular } from './schemas/movies-popular.schema';
 import { getYouTubeLink } from '../common/helper/link';
 import { TrailersPresenter } from './response/trailers.presenter';
 import { MovieMediumPresenter } from './response/movies-medium.presenter';
+import { ReviewPresenter } from './response/review.presenter';
+import { MovieCastPresenter } from './response/cast.presenter';
 
 @Injectable()
 export class MoviesService {
@@ -104,6 +106,7 @@ export class MoviesService {
         };
     }
 
+    // Result is not paged because some record may not have trailers
     async getPopularMovieLatestTrailers(query: PagingQuery): Promise<TrailersPresenter[]> {
         const { page, limit } = query;
         const populars = await this.moviesPopularModel
@@ -140,11 +143,19 @@ export class MoviesService {
         } as MovieMediumPresenter;
     }
 
-    async getMovieCast(id: number): Promise<any> {
+    async getMovieCast(id: number): Promise<MovieCastPresenter[]> {
         const doc = await this.movieModel
             .findOne({ id: id }, { credits: 1 })
             .lean();
         if (doc == null) return null;
         return doc.credits.cast;
+    }
+
+    async getMovieReviews(id: number): Promise<ReviewPresenter[]> {
+        const doc = await this.movieModel
+            .findOne({ id: id }, { reviews: 1 })
+            .lean();
+        if (doc == null) return [];
+        return doc.reviews;
     }
 }

@@ -250,8 +250,36 @@ export class Movie {
         name: string;
     }[];
 
-    @Prop({ type: [String], select: false })
-    reviews: string[];
+    @Prop({
+        type: [{
+            author: String,
+            author_details: {
+                name: String,
+                username: String,
+                avatar_path: String,
+                rating: Number
+            },
+            content: String,
+            created_at: String,
+            id: String,
+            updated_at: String,
+            url: String
+        }]
+    })
+    reviews: {
+        author: string;
+        author_details: {
+            name: string;
+            username: string;
+            avatar_path: string;
+            rating: number;
+        };
+        content: string;
+        created_at: string;
+        id: string;
+        updated_at: string;
+        url: string;
+    }[];
 }
 
 export const MovieSchema = SchemaFactory.createForClass(Movie);
