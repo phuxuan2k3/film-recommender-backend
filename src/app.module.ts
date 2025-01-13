@@ -9,6 +9,10 @@ import { ThrottlerModule } from '@nestjs/throttler';
 import { MoviesModule } from './query/movies/movies.module';
 import { UsersModule } from './query/users/users.module';
 import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from './common/const';
+import { AuthGuard } from './auth/auth.guard';
+import { APP_GUARD } from '@nestjs/core';
+import { FirebaseAdminModule } from './firebase-admin/firebase-admin.module';
+import { FirebaseAuthService } from './firebase-auth/firebase-auth.service';
 
 @Module({
   imports: [
@@ -28,8 +32,13 @@ import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from './common/const';
     ProfileModule,
     MoviesModule,
     UsersModule,
+    FirebaseAdminModule,
+
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, {
+    provide: APP_GUARD,
+    useClass: AuthGuard,
+  }, FirebaseAuthService,],
 })
 export class AppModule { }
