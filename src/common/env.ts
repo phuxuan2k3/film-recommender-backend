@@ -1,0 +1,1 @@
+export const baseLLMUrl = process.env.BASE_LLM_URL;

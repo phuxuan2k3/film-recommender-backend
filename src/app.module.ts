@@ -8,13 +8,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { MoviesModule } from './domain/movies/movies.module';
 import { UsersModule } from './domain/users/users.module';
-import { MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from './common/const';
+import { LLM_CONNECTION_NAME, MOVIES_CONNECTION_NAME, REST_CONNECTION_NAME } from './common/const';
 import { ReviewsModule } from './domain/reviews/reviews.module';
 import { GenresModule } from './domain/genres/genres.module';
-import { PeopleController } from './domain/people/people.controller';
-import { PeopleService } from './domain/people/people.service';
 import { PeopleModule } from './domain/people/people.module';
-import { RecommendationModule } from './domain/recommendation/recommendation.module';
+import { LlmModule } from './domain/llm/llm.module';
 
 @Module({
   imports: [
@@ -29,6 +27,10 @@ import { RecommendationModule } from './domain/recommendation/recommendation.mod
       dbName: process.env.MONGO_DB_REST || "TMDB",
       connectionName: REST_CONNECTION_NAME
     }),
+    MongooseModule.forRoot(process.env.MONGO_URL_LLM, {
+      dbName: process.env.MONGO_DB_LLM || "tmdb_db",
+      connectionName: LLM_CONNECTION_NAME
+    }),
 
     AuthModule,
     ProfileModule,
@@ -37,7 +39,7 @@ import { RecommendationModule } from './domain/recommendation/recommendation.mod
     ReviewsModule,
     GenresModule,
     PeopleModule,
-    RecommendationModule,
+    LlmModule,
   ],
   controllers: [AppController],
   providers: [AppService],
