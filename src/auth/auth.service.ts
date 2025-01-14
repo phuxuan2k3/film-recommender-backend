@@ -102,12 +102,12 @@ export class AuthService {
         const userCreateBody = new UserCreateBody();
         userCreateBody.email = userFireBase.email;
         userCreateBody.first_name = userFireBase.displayName;
-        userCreateBody.last_name = '';
-        userCreateBody.avatar_path = '';
+        userCreateBody.last_name = ' ';
+        userCreateBody.avatar_path = ' ';
         await this.usersAccountService.create(userFireBase.uid, userCreateBody);
       }
 
-      const jwt = this.jwtService.sign({ sub: existingUser.id, email: decodedToken.email, firstName: decodedToken.name, lastName: '' });
+      const jwt = this.jwtService.sign({ sub: userFireBase.uid, email: decodedToken.email, firstName: decodedToken.name, lastName: '' });
       console.log('jwt send', jwt);
       const res = {
         email: decodedToken.email,
@@ -137,9 +137,9 @@ export class AuthService {
       if (!existingUser) {
         const userCreateBody = new UserCreateBody();
         userCreateBody.email = userFireBase.email;
-        userCreateBody.first_name = userFireBase.displayName;
-        userCreateBody.last_name = '';
-        userCreateBody.avatar_path = '';
+        userCreateBody.first_name = userData.firstName;
+        userCreateBody.last_name = userData.lastName;
+        userCreateBody.avatar_path = userData.avatarPath;
         await this.usersAccountService.create(userFireBase.uid, userCreateBody);
       }
 

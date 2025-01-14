@@ -13,6 +13,7 @@ export class ReviewsService {
     ) { }
 
     async getReviews(movie_id: number): Promise<Review[]> {
+
         return this.reviewModel.find({ movie_id: movie_id }).lean();
     }
 
