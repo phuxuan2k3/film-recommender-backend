@@ -66,7 +66,7 @@ export class LlmService {
         };
     }
 
-    async llmNavigate(body: NavigateBody): Promise<string> {
+    async llmNavigate(body: NavigateBody): Promise<{ path: string }> {
         try {
             const response = await firstValueFrom(this.httpService.post(navigateUrl, null, {
                 params: {
@@ -75,7 +75,8 @@ export class LlmService {
                 }
             }));
             const route_presenter = response.data.data as RoutePresenter;
-            return this.llmRouteHandlerService.routeToURL(route_presenter);
+            const url = await this.llmRouteHandlerService.routeToURL(route_presenter);
+            return { path: url };
         } catch (err) {
             if (err instanceof AxiosError) {
                 throw new Error('axios: ' + err.message);
