@@ -39,7 +39,6 @@ export class UsersService {
     async update(param: UserUpdateBody): Promise<void> {
         await this.userModel.updateOne({ id: param.id }, param);
     }
-    s
     async delete(id: string): Promise<void> {
         await this.userModel.deleteOne({ id });
     }
