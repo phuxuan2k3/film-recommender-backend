@@ -47,8 +47,9 @@ export class AuthController {
   }
 
   @Get('isVerify')
-  async isVerify() {
-    return await this.authService.isVerify();
+  async isVerify(@Request() req) {
+    const jwt = req.headers.authorization.split(' ')[1];
+    return await this.authService.isVerify(jwt);
   }
 
   @Get('verify')

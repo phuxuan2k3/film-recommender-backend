@@ -9,12 +9,22 @@ import { CreateUserDto } from 'src/user/dto/create-user.dto';
 
 @Injectable()
 export class FirebaseAuthService {
+
+    private isValidUrl(url: string): boolean {
+        try {
+            new URL(url);
+            return true;
+        } catch (_) {
+            return false;
+        }
+    }
+
     updateUser(user: User, userData: CreateUserDto) {
         this.firebase.auth().updateUser(user.uid, {
             email: userData.email,
             password: userData.password,
             displayName: userData.lastName + ' ' + userData.firstName,
-            photoURL: userData.avatarPath,
+            photoURL: userData.avatarPath && this.isValidUrl(userData.avatarPath) ? userData.avatarPath : undefined,
         });
     }
     constructor(@Inject('FIREBASE_ADMIN') private readonly firebase: admin.app.App, private emailService: EmailService
@@ -74,6 +84,16 @@ export class FirebaseAuthService {
             return resetLink;
         } catch (error) {
             throw new Error(`Failed to generate reset link: ${error.message}`);
+        }
+    }
+
+    async getUserByEmail(email: string): Promise<admin.auth.UserRecord> {
+        try {
+            const user = await admin.auth().getUserByEmail(email);
+            return user;
+        } catch (error) {
+            console.log('Error getting user by email:', error);
+            throw new UnauthorizedException('User not found');
         }
     }
 }

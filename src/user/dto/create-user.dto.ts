@@ -23,7 +23,7 @@ export class CreateUserDto {
   @IsNotEmpty({ message: 'Last name is required' })
   readonly lastName: string;
 
-  readonly avatarPath: string | null;
+  readonly avatarPath: string | "https://api-private.atlassian.com/users/9cea692d0a59c5e100680165cbbeb496/avatar";
 
   readonly emailVerified: boolean | null;
 
