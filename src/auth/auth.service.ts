@@ -20,14 +20,20 @@ import {
 } from 'firebase/auth';
 import { FirebaseApp } from 'firebase/app';
 import { FirebaseAuthService } from 'src/firebase-auth/firebase-auth.service';
-import { console } from 'inspector';
 
 @Injectable()
 export class AuthService {
-  isVerify() {
+  async isVerify(jwt: string) {
     try {
-      console.log('getAuth().currentUser', getAuth().currentUser);
-      return getAuth().currentUser.emailVerified ? true : (() => { throw new UnauthorizedException('Email not verified'); })();
+      console.log('jwt rec', jwt);
+      const decoded = this.jwtService.decode(jwt);
+      if (!decoded) {
+        throw new UnauthorizedException('Invalid token');
+      }
+
+      const user = await this.firebaseAuthService.getUserByEmail(decoded.email);
+
+      return user.emailVerified ? true : (() => { throw new UnauthorizedException('Email not verified'); })();
     } catch (error) {
       console.error('Error verifying email:', error);
       throw new UnauthorizedException('Error verifying email');
@@ -64,7 +70,7 @@ export class AuthService {
       //xtodo: get user from database 
       const jwt = this.jwtService.sign({ email: user.email, firstName: user.displayName, lastName: '' });
 
-      res = { email: user.email, token: jwt, firstName: user.displayName, lastName: '' };
+      res = { email: user.email, token: { accessToken: jwt, refressToken: '' }, firstName: user.displayName, lastName: '' };
     } catch (error) {
       const errorMessage = error.message;
       res = { message: errorMessage };
@@ -81,21 +87,12 @@ export class AuthService {
 
   async signInWithGoogle(idToken: string) {
     try {
-      console.log('idToken', idToken);
       const decodedToken = await this.firebaseAuthService.verifyIdToken(idToken);
       const jwt = this.jwtService.sign({ email: decodedToken.email, firstName: decodedToken.name, lastName: '' });
-
-      //update user emailVerified to true
-      const currentUser = getAuth().currentUser;
-      if (!currentUser) {
-        throw new UnauthorizedException('User not authenticated');
-      }
-      await this.firebaseAuthService.updateUser(currentUser, new CreateUserDto({ emailVerified: true }));
-      //xtodo: get user from database
-
+      console.log('jwt send', jwt);
       const res = {
         email: decodedToken.email,
-        token: jwt,
+        token: { accessToken: jwt, refressToken: '' },
         firstName: decodedToken.name, lastName: ''
       }
 
@@ -119,7 +116,7 @@ export class AuthService {
       this.firebaseAuthService.updateUser(user, userData);
 
       const jwt = this.jwtService.sign({ email: user.email, firstName: userData.firstName, lastName: userData.lastName });
-      const res = { email: user.email, token: jwt, firstName: userData.firstName, lastName: userData.lastName };
+      const res = { email: user.email, token: { accessToken: jwt, refressToken: '' }, firstName: userData.firstName, lastName: userData.lastName };
       this.firebaseAuthService.sendVerifyAccountEmail(user.email);
       return res;
     } catch (error) {
