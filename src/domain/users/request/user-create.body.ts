@@ -31,5 +31,5 @@ export class UserCreateBody {
     avatar_path: string | null;
 
     @IsOptional()
-    role: number | null;
+    role: number | 0; // 0: basic , 1: premium
 }

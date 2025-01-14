@@ -5,7 +5,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserService } from 'src/user/user.service';
+import { UsersAccountService } from '../domain/users/exports/users-account.service';
 import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { FirebaseAdminService } from 'config/firebase';
 import {
@@ -20,9 +20,12 @@ import {
 } from 'firebase/auth';
 import { FirebaseApp } from 'firebase/app';
 import { FirebaseAuthService } from 'src/firebase-auth/firebase-auth.service';
+import { UserCreateBody } from 'src/domain/users/request/user-create.body';
+import { UsersService } from '../domain/users/services/users.service';
 
 @Injectable()
 export class AuthService {
+
   async isVerify(jwt: string) {
     try {
       console.log('jwt rec', jwt);
@@ -46,10 +49,11 @@ export class AuthService {
   private provider: GoogleAuthProvider;
 
   constructor(
-    private userService: UserService,
+    private readonly usersAccountService: UsersAccountService,
     private jwtService: JwtService,
     private firebaseService: FirebaseAdminService,
     private firebaseAuthService: FirebaseAuthService,
+    private usersService: UsersService
   ) {
     this.authen = this.firebaseService.connect();
     this.auth = getAuth(this.authen);
@@ -66,6 +70,8 @@ export class AuthService {
         userData.password,
       );
       const user = userCredential.user;
+
+      console.log('user by email sign in', await this.firebaseAuthService.getUserByEmail(user.email));
 
       //xtodo: get user from database 
       const jwt = this.jwtService.sign({ email: user.email, firstName: user.displayName, lastName: '' });
@@ -88,7 +94,20 @@ export class AuthService {
   async signInWithGoogle(idToken: string) {
     try {
       const decodedToken = await this.firebaseAuthService.verifyIdToken(idToken);
-      const jwt = this.jwtService.sign({ email: decodedToken.email, firstName: decodedToken.name, lastName: '' });
+
+      const userFireBase = await this.firebaseAuthService.getUserByEmail(decodedToken.email);
+
+      const existingUser = await this.usersService.getDetail(userFireBase.uid);
+      if (!existingUser) {
+        const userCreateBody = new UserCreateBody();
+        userCreateBody.email = userFireBase.email;
+        userCreateBody.first_name = userFireBase.displayName;
+        userCreateBody.last_name = '';
+        userCreateBody.avatar_path = '';
+        await this.usersAccountService.create(userFireBase.uid, userCreateBody);
+      }
+
+      const jwt = this.jwtService.sign({ sub: existingUser.id, email: decodedToken.email, firstName: decodedToken.name, lastName: '' });
       console.log('jwt send', jwt);
       const res = {
         email: decodedToken.email,
@@ -112,7 +131,18 @@ export class AuthService {
       );
       const user = userCredential.user;
 
-      //xtodo: save user to database
+      //xtodo: create user in database
+      const userFireBase = await this.firebaseAuthService.getUserByEmail(user.email);
+      const existingUser = await this.usersService.getDetail(userFireBase.uid);
+      if (!existingUser) {
+        const userCreateBody = new UserCreateBody();
+        userCreateBody.email = userFireBase.email;
+        userCreateBody.first_name = userFireBase.displayName;
+        userCreateBody.last_name = '';
+        userCreateBody.avatar_path = '';
+        await this.usersAccountService.create(userFireBase.uid, userCreateBody);
+      }
+
       this.firebaseAuthService.updateUser(user, userData);
 
       const jwt = this.jwtService.sign({ email: user.email, firstName: userData.firstName, lastName: userData.lastName });

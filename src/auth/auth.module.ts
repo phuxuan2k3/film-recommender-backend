@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
-import { UserModule } from 'src/user/user.module';
+import { UsersModule } from 'src/domain/users/users.module';
 import { JwtModule } from '@nestjs/jwt';
 // import { APP_GUARD } from '@nestjs/core';
 // import { AuthGuard } from './auth.guard';
@@ -14,13 +14,13 @@ dotenv.config();
 
 @Module({
   imports: [
-    UserModule,
     JwtModule.register({
       global: true,
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '1h' },
     }),
     FirebaseAdminModule,
+    UsersModule,
   ],
   controllers: [AuthController],
   providers: [
