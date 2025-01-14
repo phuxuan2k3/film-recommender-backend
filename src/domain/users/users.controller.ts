@@ -41,6 +41,13 @@ export class UsersController {
         await this.userInfoService.delete(param.user_id);
     }
 
+    // Personal Routes
+
+    @Get('/movie/:movie_id')
+    async getUserMovies(@Param() param: MovieIdParam) {
+        await this.usersAggregateService.getMoviesInfoInUser(user_id, param.movie_id);
+    }
+
     @Post('rating/add/:movie_id')
     async addRating(@Param() param: MovieIdParam, @Body() body: MovieRatingBody) {
         await this.usersAggregateService.addRating(user_id, param.movie_id, body.rating);
