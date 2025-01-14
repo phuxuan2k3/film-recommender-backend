@@ -49,6 +49,8 @@ export class UsersActionService {
         return this.moviesExportService.getMovieByIds(movieIds);
     }
 
+    as
+
     async addFavorite(user_id: string, movie_id: number): Promise<void> {
         const now = new Date();
         await this.userModel.updateOne(

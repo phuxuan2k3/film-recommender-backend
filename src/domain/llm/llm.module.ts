@@ -13,10 +13,7 @@ import { Similar, SimilarSchema } from './schemas/similar.schema';
 
 @Module({
   imports: [
-    HttpModule.register({
-      timeout: 20000,
-      maxRedirects: 5,
-    }),
+    HttpModule,
 
     MongooseModule.forFeature([
       { name: Movie.name, schema: MovieSchema },
