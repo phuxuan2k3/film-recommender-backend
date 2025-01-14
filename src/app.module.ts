@@ -41,13 +41,10 @@ import { EmailService } from './email/email.service';
     ProfileModule,
     MoviesModule,
     UsersModule,
-<<<<<<< HEAD
     ReviewsModule,
     GenresModule,
     PeopleModule,
     LlmModule,
-=======
->>>>>>> 2f8f20a5fb65245e6b9ce3d3439087ccc1ea5770
     FirebaseAdminModule,
 
   ],
