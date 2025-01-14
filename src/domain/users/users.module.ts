@@ -23,6 +23,7 @@ import { REST_CONNECTION_NAME } from 'src/common/const';
   ],
   exports: [
     UsersAccountService,
+    UsersService,
   ]
 })
 export class UsersModule { }

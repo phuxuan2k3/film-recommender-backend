@@ -5,8 +5,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserService } from 'src/user/user.service';
-import * as bcryptjs from 'bcryptjs';
+import { UsersAccountService } from '../domain/users/exports/users-account.service';
 import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { FirebaseAdminService } from 'config/firebase';
 import {
@@ -15,23 +14,46 @@ import {
   signOut,
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,
   Auth,
-  signInWithCustomToken,
+  signInWithCredential,
+  deleteUser,
 } from 'firebase/auth';
 import { FirebaseApp } from 'firebase/app';
-import axios from 'axios';
+import { FirebaseAuthService } from 'src/firebase-auth/firebase-auth.service';
+import { UserCreateBody } from 'src/domain/users/request/user-create.body';
+import { UsersService } from '../domain/users/services/users.service';
 
 @Injectable()
 export class AuthService {
+
+  async isVerify(jwt: string) {
+    try {
+      console.log('jwt rec', jwt);
+      const decoded = this.jwtService.decode(jwt);
+      if (!decoded) {
+        throw new UnauthorizedException('Invalid token');
+      }
+
+      const user = await this.firebaseAuthService.getUserByEmail(decoded.email);
+
+      return user.emailVerified ? true : (() => { throw new UnauthorizedException('Email not verified'); })();
+    } catch (error) {
+      console.error('Error verifying email:', error);
+      throw new UnauthorizedException('Error verifying email');
+    }
+  }
+
+
   private authen: FirebaseApp;
   private auth: Auth;
   private provider: GoogleAuthProvider;
 
   constructor(
-    private userService: UserService,
+    private readonly usersAccountService: UsersAccountService,
     private jwtService: JwtService,
     private firebaseService: FirebaseAdminService,
+    private firebaseAuthService: FirebaseAuthService,
+    private usersService: UsersService
   ) {
     this.authen = this.firebaseService.connect();
     this.auth = getAuth(this.authen);
@@ -39,8 +61,8 @@ export class AuthService {
     this.provider = new GoogleAuthProvider();
   }
 
-  async signIn(userData: CreateUserDto) {
-    let res: { message: string };
+  async signIn(userData: { email: string; password: string }) {
+    let res: any;
     try {
       const userCredential = await signInWithEmailAndPassword(
         this.auth,
@@ -48,55 +70,59 @@ export class AuthService {
         userData.password,
       );
       const user = userCredential.user;
-      res = { message: 'Log in successfully!' };
+
+      console.log('user by email sign in', await this.firebaseAuthService.getUserByEmail(user.email));
+
+      //xtodo: get user from database 
+      const jwt = this.jwtService.sign({ email: user.email, firstName: user.displayName, lastName: '' });
+
+      res = { email: user.email, token: { accessToken: jwt, refressToken: '' }, firstName: user.displayName, lastName: '' };
     } catch (error) {
       const errorMessage = error.message;
       res = { message: errorMessage };
+      throw new HttpException(errorMessage, HttpStatus.UNAUTHORIZED);
     }
 
-    console.log(res);
     return res;
+  }
+
+  async resetPassword(email: string) {
+
+    await this.firebaseAuthService.sendPasswordResetEmail(email);
   }
 
   async signInWithGoogle(idToken: string) {
     try {
-      const response = await axios.get(
-        `https://oauth2.googleapis.com/tokeninfo?id_token=${idToken}`,
-      );
-      const payload = response.data;
-      const { email, name, picture, sub: googleUid } = payload;
-      try {
-        const userCredential = await signInWithCustomToken(this.auth, idToken);
-        return {
-          token: await userCredential.user.getIdToken(),
-          user: {
-            email: userCredential.user.email,
-            displayName: userCredential.user.displayName,
-            photoURL: userCredential.user.photoURL,
-          },
-        };
-      } catch {
-        // Create a new user if they don't exist
-        const newUser = await createUserWithEmailAndPassword(
-          this.auth,
-          email,
-          googleUid,
-        );
-        return {
-          token: await newUser.user.getIdToken(),
-          user: {
-            email: newUser.user.email,
-            displayName: name,
-            photoURL: picture,
-          },
-        };
+      const decodedToken = await this.firebaseAuthService.verifyIdToken(idToken);
+
+      const userFireBase = await this.firebaseAuthService.getUserByEmail(decodedToken.email);
+
+      const existingUser = await this.usersService.getDetail(userFireBase.uid);
+      if (!existingUser) {
+        const userCreateBody = new UserCreateBody();
+        userCreateBody.email = userFireBase.email;
+        userCreateBody.first_name = userFireBase.displayName;
+        userCreateBody.last_name = '';
+        userCreateBody.avatar_path = '';
+        await this.usersAccountService.create(userFireBase.uid, userCreateBody);
       }
+
+      const jwt = this.jwtService.sign({ sub: existingUser.id, email: decodedToken.email, firstName: decodedToken.name, lastName: '' });
+      console.log('jwt send', jwt);
+      const res = {
+        email: decodedToken.email,
+        token: { accessToken: jwt, refressToken: '' },
+        firstName: decodedToken.name, lastName: ''
+      }
+
+      return res;
     } catch (error) {
+      console.log('error', error);
       throw new UnauthorizedException('Invalid Google ID Token');
     }
   }
 
-  async signUp(userData: CreateUserDto): Promise<{ message: string }> {
+  async signUp(userData: CreateUserDto) {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         this.auth,
@@ -104,13 +130,29 @@ export class AuthService {
         userData.password,
       );
       const user = userCredential.user;
-      console.log('ok', user);
 
-      return { message: 'User registered successfully!' };
+      //xtodo: create user in database
+      const userFireBase = await this.firebaseAuthService.getUserByEmail(user.email);
+      const existingUser = await this.usersService.getDetail(userFireBase.uid);
+      if (!existingUser) {
+        const userCreateBody = new UserCreateBody();
+        userCreateBody.email = userFireBase.email;
+        userCreateBody.first_name = userFireBase.displayName;
+        userCreateBody.last_name = '';
+        userCreateBody.avatar_path = '';
+        await this.usersAccountService.create(userFireBase.uid, userCreateBody);
+      }
+
+      this.firebaseAuthService.updateUser(user, userData);
+
+      const jwt = this.jwtService.sign({ email: user.email, firstName: userData.firstName, lastName: userData.lastName });
+      const res = { email: user.email, token: { accessToken: jwt, refressToken: '' }, firstName: userData.firstName, lastName: userData.lastName };
+      this.firebaseAuthService.sendVerifyAccountEmail(user.email);
+      return res;
     } catch (error) {
       const errorMessage = error.message;
       console.log('error', errorMessage);
-      return { message: errorMessage };
+      throw new HttpException(errorMessage, HttpStatus.BAD_REQUEST);
     }
   }
 
@@ -123,5 +165,26 @@ export class AuthService {
       console.log('error', errorMessage);
       return { message: errorMessage };
     }
+  }
+
+  async verifyEmail() {
+    const currentUser = getAuth().currentUser;
+    if (!currentUser) {
+      throw new UnauthorizedException('User not authenticated');
+    }
+    const email = currentUser.email;
+    await this.firebaseAuthService.sendVerifyAccountEmail(email);
+  }
+
+
+
+  async delete() {
+    const currentUser = getAuth().currentUser;
+    console.log('currentUser', currentUser);
+    if (!currentUser) {
+      throw new UnauthorizedException('User not authenticated');
+    }
+    await deleteUser(currentUser);
+    console.log('User deleted');
   }
 }

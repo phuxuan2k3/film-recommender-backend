@@ -25,11 +25,11 @@ export class UsersController {
         await this.userInfoService.getDetail(user_id);
     }
 
-    // Todo: Test route 
-    @Post('create')
-    async createUser(@Body() body: UserCreateBody) {
-        return await this.usersAccountService.create(body);
-    }
+    // // Todo: Test route 
+    // @Post('create')
+    // async createUser(@Body() body: UserCreateBody) {
+    //     return await this.usersAccountService.create(body);
+    // }
 
     @Post('update')
     async updateUser(@Body() body: UserUpdateBody) {

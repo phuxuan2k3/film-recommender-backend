@@ -6,23 +6,30 @@ import {
   UseGuards,
   ValidationPipe,
   Request,
+  Delete,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from 'src/user/dto/create-user.dto';
+import { Public } from './public';
 
-@Controller('auth')
+@Public()
+@Controller('api/auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService
+  ) { }
 
   @Post('login')
-  async login(@Body() userData: CreateUserDto) {
-    console.log(userData);
-    return await this.authService.signIn(userData);
+  async login(@Body('email') email: string, @Body('password') password: string) {
+    return await this.authService.signIn({ email, password });
   }
 
-  @Get('loginWithGoogle')
+  @Post('resetPassword')
+  async resetPassword(@Body('email') email: string) {
+    return await this.authService.resetPassword(email);
+  }
+
+  @Post('loginWithGoogle')
   async loginGoole(@Body('idToken') idToken: string) {
-    console.log(idToken);
     return await this.authService.signInWithGoogle(idToken);
   }
 
@@ -37,5 +44,21 @@ export class AuthController {
   @Post('logout')
   async logOut() {
     return await this.authService.logOut();
+  }
+
+  @Get('isVerify')
+  async isVerify(@Request() req) {
+    const jwt = req.headers.authorization.split(' ')[1];
+    return await this.authService.isVerify(jwt);
+  }
+
+  @Get('verify')
+  async verifyEmail() {
+    return await this.authService.verifyEmail();
+  }
+
+  @Delete('delete')
+  async delete() {
+    return await this.authService.delete();
   }
 }

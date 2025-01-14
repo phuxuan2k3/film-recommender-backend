@@ -70,6 +70,9 @@ export class User {
         movie_id: number;
         created_at: string;
     }[];
+
+    @Prop()
+    role: number; // 0: basic, 1: premium
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

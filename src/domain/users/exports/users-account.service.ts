@@ -12,8 +12,8 @@ export class UsersAccountService {
         @InjectModel(User.name, REST_CONNECTION_NAME) private userModel: Model<User>
     ) { }
 
-    async create(param: UserCreateBody): Promise<{ id: string }> {
-        const id = v4();
+    async create(id: string, param: UserCreateBody): Promise<{ id: string }> {
+        // const id = v4();
         await this.userModel.create({
             id,
             ...param,
@@ -23,5 +23,11 @@ export class UsersAccountService {
             history_movies_id: []
         });
         return { id };
+    }
+
+    async update(id: string, param: UserCreateBody): Promise<void> {
+        await this.userModel.updateOne({
+            id
+        }, param);
     }
 }

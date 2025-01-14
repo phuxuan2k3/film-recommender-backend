@@ -13,6 +13,11 @@ import { ReviewsModule } from './domain/reviews/reviews.module';
 import { GenresModule } from './domain/genres/genres.module';
 import { PeopleModule } from './domain/people/people.module';
 import { LlmModule } from './domain/llm/llm.module';
+import { APP_GUARD } from '@nestjs/core';
+import { AuthGuard } from './auth/auth.guard';
+import { FirebaseAdminModule } from './firebase-admin/firebase-admin.module';
+import { FirebaseAuthService } from './firebase-auth/firebase-auth.service';
+import { EmailService } from './email/email.service';
 
 @Module({
   imports: [
@@ -40,8 +45,14 @@ import { LlmModule } from './domain/llm/llm.module';
     GenresModule,
     PeopleModule,
     LlmModule,
+    FirebaseAdminModule,
+
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, {
+    provide: APP_GUARD,
+    useClass: AuthGuard,
+  }, FirebaseAuthService,
+    EmailService],
 })
 export class AppModule { }
