@@ -47,14 +47,18 @@ export class UsersActionService {
         const user = await this.userModel.findOne({ id: user_id }).exec();
         if (!user) return null;
         const movieIds = user.rating_movies_id.map((item) => item.movie_id);
-        return this.moviesExportService.getMovieByIds(movieIds);
+        console.log('getRatingMovies -> movieIds', movieIds);
+        const res = await this.moviesExportService.getMovieByIds(movieIds);
+        console.log('getRatingMovies -> res', res);
     }
 
     async addFavorite(user_id: string, movie_id: number): Promise<void> {
+        console.log('addFavorite -> user_id', user_id);
+        console.log('addFavorite -> user_id', movie_id);
         const now = new Date();
         const user = await this.userModel.findOne({ id: user_id }).lean();
         if (!user) return null;
-        if (user.favorite_movies_id.findIndex((item) => item.movie_id === movie_id) !== -1) {
+        if (user.favorite_movies_id.findIndex((item) => item.movie_id === movie_id) === -1) {
             await this.userModel.updateOne(
                 { id: user_id },
                 {
@@ -105,7 +109,7 @@ export class UsersActionService {
         const now = new Date();
         const user = await this.userModel.findOne({ id: user_id }).lean();
         if (!user) return null;
-        if (user.watchlist_movies_id.findIndex((item) => item.movie_id === movie_id) !== -1) {
+        if (user.watchlist_movies_id.findIndex((item) => item.movie_id === movie_id) === -1) {
             await this.userModel.updateOne(
                 { id: user_id },
                 {

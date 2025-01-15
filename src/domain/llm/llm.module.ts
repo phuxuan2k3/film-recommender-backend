@@ -10,6 +10,7 @@ import { MoviesLLMService } from './services/movies-llm.service';
 import { RouteHandlerService } from './services/route-handler.service';
 import { Genre, GenreSchema } from '../genres/genres.schema';
 import { Similar, SimilarSchema } from './schemas/similar.schema';
+import { People, PeopleSchema } from '../people/schemas/people.schema';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { Similar, SimilarSchema } from './schemas/similar.schema';
     MongooseModule.forFeature([
       { name: Movie.name, schema: MovieSchema },
       { name: Genre.name, schema: GenreSchema },
-      { name: Similar.name, schema: SimilarSchema }
+      { name: Similar.name, schema: SimilarSchema },
+      { name: People.name, schema: PeopleSchema }
     ], LLM_CONNECTION_NAME),
 
     MoviesModule

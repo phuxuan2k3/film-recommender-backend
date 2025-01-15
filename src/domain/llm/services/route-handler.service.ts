@@ -5,6 +5,7 @@ import { InjectModel } from "@nestjs/mongoose";
 import { Genre } from "src/domain/genres/genres.schema";
 import { LLM_CONNECTION_NAME } from "src/common/const";
 import { Model } from "mongoose";
+import { People } from "src/domain/people/schemas/people.schema";
 
 enum PageEnum {
     HOME_PAGE = 'HOME_PAGE',
@@ -20,7 +21,8 @@ enum PageEnum {
 export class RouteHandlerService {
     constructor(
         private readonly moviesExportService: MoviesExportService,
-        @InjectModel(Genre.name, LLM_CONNECTION_NAME) private genreModel: Model<Genre>
+        @InjectModel(Genre.name, LLM_CONNECTION_NAME) private genreModel: Model<Genre>,
+        @InjectModel(People.name, LLM_CONNECTION_NAME) private peopleModel: Model<People>
     ) { }
 
     async routeToURL(route: RoutePresenter): Promise<string> {
@@ -34,10 +36,6 @@ export class RouteHandlerService {
             case PageEnum.SEARCH_PAGE:
                 return `/movies/search?query=${route.params?.keyword}`;
             case PageEnum.CAST_PAGE:
-                return `/cast/${route.params?.cast_id}`;
-                const movie_id = route.params.movie_ids[0];
-                const movie = await this.moviesExportService.getMovieById(movie_id);
-                return `/movies/:${movie.id}`;
             case PageEnum.MOVIE_PAGE:
                 if (route.params?.movie_ids && route.params?.movie_ids.length > 0) {
                     const movie_id = route.params.movie_ids[0];
