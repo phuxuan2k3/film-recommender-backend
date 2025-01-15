@@ -167,12 +167,8 @@ export class AuthService {
     }
   }
 
-  async verifyEmail() {
-    const currentUser = getAuth().currentUser;
-    if (!currentUser) {
-      throw new UnauthorizedException('User not authenticated');
-    }
-    const email = currentUser.email;
+  async verifyEmail(email: string) {
+
     await this.firebaseAuthService.sendVerifyAccountEmail(email);
   }
 

@@ -7,15 +7,18 @@ import {
   ValidationPipe,
   Request,
   Delete,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { Public } from './public';
+import { JwtService } from '@nestjs/jwt';
 
 @Public()
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService
+  constructor(private authService: AuthService,
+    private jwtService: JwtService,
   ) { }
 
   @Post('login')
@@ -53,8 +56,14 @@ export class AuthController {
   }
 
   @Get('verify')
-  async verifyEmail() {
-    return await this.authService.verifyEmail();
+  async verifyEmail(@Request() req) {
+    const jwt = req.headers.authorization.split(' ')[1];
+    const decoded = this.jwtService.decode(jwt);
+    if (!decoded) {
+      throw new UnauthorizedException('Invalid token');
+    }
+
+    return await this.authService.verifyEmail(decoded.email);
   }
 
   @Delete('delete')
