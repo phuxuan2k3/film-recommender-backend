@@ -5,12 +5,14 @@ import {
   UnauthorizedException,
   NotFoundException,
 } from '@nestjs/common';
+import { Public } from 'src/auth/public';
 import { ProfileUser } from 'src/user/dto/profile-user.dto';
 import { UserService } from 'src/user/user.service';
 
+@Public()
 @Controller('profile')
 export class ProfileController {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) { }
 
   @Get()
   async getProfile(@Request() req): Promise<ProfileUser | null> {

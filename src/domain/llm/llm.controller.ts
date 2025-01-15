@@ -2,7 +2,9 @@ import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { LlmService } from './services/llm.service';
 import { LLMSearchQuery } from './param/llm-search.query';
 import { NavigateBody } from './param/navigate.body';
+import { Public } from 'src/auth/public';
 
+@Public()
 @Controller('llm')
 export class LlmController {
     constructor(
