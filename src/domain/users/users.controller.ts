@@ -124,8 +124,22 @@ export class UsersController {
         return await this.usersAggregateService.getHistoryMovies(user_id);
     }
 
+    @Get('self')
+    async getSelf(@JwtPayload() payload: JwtPayloadData) {
+        console.log('getSelf -> payload', payload);
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
+        return await this.userInfoService.getDetail(user_id);
+    }
+
     @Get(':user_id')
     async getUser(@Param() param: UserIdParam) {
-        return await this.userInfoService.getDetail(param.user_id);
+        const user = await this.userInfoService.getDetail(param.user_id);
+        if (!user) {
+            return {
+                message: 'User not found'
+            }
+        }
+        return user;
     }
 }
