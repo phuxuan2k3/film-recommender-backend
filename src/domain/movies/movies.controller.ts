@@ -4,7 +4,9 @@ import { SearchQuery } from './request/search.query';
 import { TrendingParam } from './request/trending.param';
 import { PagingQuery } from '../common/dto/paging.query';
 import { MovieIdParam } from './request/movie-id.param';
+import { Public } from 'src/auth/public';
 
+@Public()
 @Controller('movies')
 export class MoviesController {
     constructor(private readonly moviesService: MoviesService) { }

@@ -1,7 +1,9 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { PeopleService } from './people.service';
 import { PeopleIdParam } from './request/people-id.param';
+import { Public } from 'src/auth/public';
 
+@Public()
 @Controller('people')
 export class PeopleController {
     constructor(

@@ -7,7 +7,9 @@ import { MovieIdParam } from '../movies/request/movie-id.param';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../../domain/users/services/users.service';
 import { FirebaseAuthService } from 'src/firebase-auth/firebase-auth.service';
+import { Public } from 'src/auth/public';
 
+@Public()
 @Controller('reviews')
 export class ReviewsController {
     constructor(
