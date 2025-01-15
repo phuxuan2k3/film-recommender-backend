@@ -1,6 +1,8 @@
 import { Controller, Get } from '@nestjs/common';
 import { GenresService } from './genres.service';
+import { Public } from 'src/auth/public';
 
+@Public()
 @Controller('genres')
 export class GenresController {
     constructor(
