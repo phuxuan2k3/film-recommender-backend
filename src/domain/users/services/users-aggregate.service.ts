@@ -50,6 +50,7 @@ export class UsersActionService {
         console.log('getRatingMovies -> movieIds', movieIds);
         const res = await this.moviesExportService.getMovieByIds(movieIds);
         console.log('getRatingMovies -> res', res);
+        return res;
     }
 
     async addFavorite(user_id: string, movie_id: number): Promise<void> {
