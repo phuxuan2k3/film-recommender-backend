@@ -16,6 +16,7 @@ export class UsersActionService {
 
     async addRating(user_id: string, movie_id: number, rating: number): Promise<void> {
         const now = new Date();
+
         await this.userModel.updateOne(
             { id: user_id },
             {

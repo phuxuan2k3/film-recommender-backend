@@ -70,4 +70,9 @@ export class AuthController {
   async delete() {
     return await this.authService.delete();
   }
+
+  @Post('refresh')
+  async refreshToken(@Body('refreshToken') refreshToken: string) {
+    return await this.authService.refreshToken(refreshToken);
+  }
 }

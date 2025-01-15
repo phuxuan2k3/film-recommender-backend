@@ -22,20 +22,33 @@ import { FirebaseApp } from 'firebase/app';
 import { FirebaseAuthService } from 'src/firebase-auth/firebase-auth.service';
 import { UserCreateBody } from 'src/domain/users/request/user-create.body';
 import { UsersService } from '../domain/users/services/users.service';
+import { JWT_SECRET, JWT_SECRET_REFRESH } from 'src/common/env';
 
 @Injectable()
 export class AuthService {
-
   async isVerify(jwt: string) {
     try {
       console.log('jwt rec', jwt);
-      const decoded = this.jwtService.decode(jwt);
+      const decoded = this.jwtService.verify(jwt, { secret: JWT_SECRET });
       if (!decoded) {
         throw new UnauthorizedException('Invalid token');
       }
-
       const user = await this.firebaseAuthService.getUserByEmail(decoded.email);
+      return user.emailVerified ? true : (() => { throw new UnauthorizedException('Email not verified'); })();
+    } catch (error) {
+      console.error('Error verifying email:', error);
+      throw new UnauthorizedException('Error verifying email');
+    }
+  }
 
+  async refreshToken(refreshToken: string) {
+    try {
+      console.log('refreshToken', refreshToken);
+      const decoded = this.jwtService.verify(refreshToken, { secret: JWT_SECRET_REFRESH });
+      if (!decoded) {
+        throw new UnauthorizedException('Invalid token');
+      }
+      const user = await this.firebaseAuthService.getUserByEmail(decoded.email);
       return user.emailVerified ? true : (() => { throw new UnauthorizedException('Email not verified'); })();
     } catch (error) {
       console.error('Error verifying email:', error);
@@ -57,7 +70,6 @@ export class AuthService {
   ) {
     this.authen = this.firebaseService.connect();
     this.auth = getAuth(this.authen);
-
     this.provider = new GoogleAuthProvider();
   }
 
@@ -73,10 +85,10 @@ export class AuthService {
 
       console.log('user by email sign in', await this.firebaseAuthService.getUserByEmail(user.email));
 
-      //xtodo: get user from database 
-      const jwt = this.jwtService.sign({ email: user.email, firstName: user.displayName, lastName: '' });
+      const jwt = this.jwtService.sign({ email: user.email, firstName: user.displayName, lastName: '' }, { secret: JWT_SECRET });
+      const jwtRefresh = this.jwtService.sign({ email: user.email, firstName: user.displayName, lastName: '' }, { secret: JWT_SECRET_REFRESH });
 
-      res = { email: user.email, token: { accessToken: jwt, refreshToken: jwt }, firstName: user.displayName, lastName: '' };
+      res = { email: user.email, token: { accessToken: jwt, refreshToken: jwtRefresh }, firstName: user.displayName, lastName: '' };
     } catch (error) {
       const errorMessage = error.message;
       res = { message: errorMessage };

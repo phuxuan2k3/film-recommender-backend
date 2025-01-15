@@ -9,7 +9,6 @@ import { FirebaseAdminService } from 'config/firebase';
 import { firebaseConfig } from 'config/firebase.config';
 import * as dotenv from 'dotenv';
 import { FirebaseAdminModule } from 'src/firebase-admin/firebase-admin.module';
-import { EmailService } from 'src/email/email.service';
 dotenv.config();
 
 @Module({
