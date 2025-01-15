@@ -13,7 +13,7 @@ import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { Public } from './public';
 
 @Public()
-@Controller('api/auth')
+@Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService
   ) { }
