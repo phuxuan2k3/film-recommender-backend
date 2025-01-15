@@ -1,15 +1,22 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param, Query, Request } from '@nestjs/common';
 import { MoviesService } from './movies.service';
 import { SearchQuery } from './request/search.query';
 import { TrendingParam } from './request/trending.param';
 import { PagingQuery } from '../common/dto/paging.query';
 import { MovieIdParam } from './request/movie-id.param';
 import { Public } from 'src/auth/public';
+import { JwtService } from '@nestjs/jwt';
+import { FirebaseAuthService } from 'src/firebase-auth/firebase-auth.service';
+import { UsersService } from '../users/services/users.service';
 
 @Public()
 @Controller('movies')
 export class MoviesController {
-    constructor(private readonly moviesService: MoviesService) { }
+    constructor(private readonly moviesService: MoviesService,
+        private readonly jwtService: JwtService,
+        private readonly firebaseAuthService: FirebaseAuthService,
+        private readonly usersService: UsersService
+    ) { }
 
     @Get('all')
     async all() {
@@ -42,8 +49,26 @@ export class MoviesController {
     }
 
     @Get('reviews/:movie_id')
-    async getReviews(@Param() param: MovieIdParam) {
-        return await this.moviesService.getMovieReviews(param.movie_id);
+    async getReviews(@Request() req, @Param() param: MovieIdParam) {
+        console.log('====go to here');
+        const jwt = req.headers.authorization.split(' ')[1];
+        const decodedJwt = this.jwtService.decode(jwt);
+        const user = await this.firebaseAuthService.getUserByEmail(decodedJwt.email);
+        if (!await this.firebaseAuthService.getUserByEmail(decodedJwt.email)) {
+            throw new Error('User not found');
+        }
+        const u = await this.firebaseAuthService.getUserByEmail(decodedJwt.email);
+        const udb = await this.usersService.getDetail(u.uid);
+
+        console.log(udb.email, udb.avatar_path);
+
+        if (udb.avatar_path !== undefined && udb.avatar_path !== '') {
+            return await this.moviesService.getMovieReviews(param.movie_id);
+        }
+
+        return null;
+
+        //xtodo: fix here
     }
 
     @Get(':movie_id')

@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { MoviesService } from './movies.service';
 import { MoviesController } from './movies.controller';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -8,6 +8,8 @@ import { MoviesTrendingDay, MoviesTrendingDaySchema } from './schemas/movies-tre
 import { MoviesTrendingWeek, MoviesTrendingWeekSchema } from './schemas/movies-trending-week.schema';
 import { MoviesPopular, MoviesPopularSchema } from './schemas/movies-popular.schema';
 import { MoviesExportService } from './exports/movie-export.service';
+import { FirebaseAdminModule } from 'src/firebase-admin/firebase-admin.module';
+import { UsersModule } from '../users/users.module';
 
 @Module({
   imports: [
@@ -19,6 +21,8 @@ import { MoviesExportService } from './exports/movie-export.service';
       { name: MoviesTrendingWeek.name, schema: MoviesTrendingWeekSchema },
       { name: MoviesPopular.name, schema: MoviesPopularSchema }
     ], REST_CONNECTION_NAME),
+    forwardRef(() => UsersModule),
+    forwardRef(() => FirebaseAdminModule)
   ],
   providers: [
     MoviesService,

@@ -4,9 +4,7 @@ import { AddReviewBody } from './request/add-review.body';
 import { AddReviewParam } from './request/add-review.param';
 import { ReviewIdParam } from './request/review-id.param';
 import { MovieIdParam } from '../movies/request/movie-id.param';
-import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../../domain/users/services/users.service';
-import { FirebaseAuthService } from 'src/firebase-auth/firebase-auth.service';
 import { Public } from 'src/auth/public';
 
 @Public()
@@ -14,30 +12,13 @@ import { Public } from 'src/auth/public';
 export class ReviewsController {
     constructor(
         private reviewsService: ReviewsService,
-        private jwtService: JwtService,
-        private usersService: UsersService,
-        private firebaseAuthService: FirebaseAuthService
     ) { }
 
     @Get(':movie_id')
-    async getReviews(@Request() req, @Param() param: MovieIdParam) {
+    async getReviews(@Param() param: MovieIdParam) {
 
-        const jwt = req.headers.authorization.split(' ')[1];
-        const decodedJwt = this.jwtService.decode(jwt);
-        const user = await this.firebaseAuthService.getUserByEmail(decodedJwt.email);
-        if (!await this.firebaseAuthService.getUserByEmail(decodedJwt.email)) {
-            throw new Error('User not found');
-        }
+        return this.reviewsService.getReviews(param.movie_id);
 
-        const userDB = await this.usersService.getDetail(user.uid);
-        if (!userDB) {
-            throw new Error('User not found');
-        }
-
-        if (userDB.role > 0) {
-            return this.reviewsService.getReviews(param.movie_id);
-        }
-        return null;
     }
 
     @Post('add/:movie_id')
