@@ -14,6 +14,14 @@ export class UsersService {
         @InjectModel(User.name, REST_CONNECTION_NAME) private userModel: Model<User>
     ) { }
 
+    async getUserIdFromEmail(email: string): Promise<string> {
+        const user = await this.userModel.findOne({
+            email: email
+        }).lean();
+        if (!user) return null;
+        return user.id;
+    }
+
     async getDetail(user_id: string): Promise<User> {
         const users = await this.userModel.findOne({ id: user_id }).exec();
         if (!users) return null;

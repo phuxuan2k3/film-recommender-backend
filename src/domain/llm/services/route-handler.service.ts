@@ -34,7 +34,10 @@ export class RouteHandlerService {
             case PageEnum.SEARCH_PAGE:
                 return `/movies/search?query=${route.params?.keyword}`;
             case PageEnum.CAST_PAGE:
-                return null;
+                return `/cast/${route.params?.cast_id}`;
+                const movie_id = route.params.movie_ids[0];
+                const movie = await this.moviesExportService.getMovieById(movie_id);
+                return `/movies/:${movie.id}`;
             case PageEnum.MOVIE_PAGE:
                 if (route.params?.movie_ids && route.params?.movie_ids.length > 0) {
                     const movie_id = route.params.movie_ids[0];

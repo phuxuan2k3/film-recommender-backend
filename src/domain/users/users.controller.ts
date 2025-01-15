@@ -1,28 +1,24 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { UsersActionService } from './services/users-aggregate.service';
 import { UsersService } from './services/users.service';
-import { CreateUserDto } from 'src/user/dto/create-user.dto';
-import { UserCreateBody } from './request/user-create.body';
-import { UsersAccountService } from './exports/users-account.service';
 import { UserUpdateBody } from './request/user-update.body';
 import { UserIdParam } from './request/user-id.param';
 import { MovieIdParam } from '../movies/request/movie-id.param';
 import { MovieRatingBody } from './request/movie-rating.body';
-
-// todo: get users from token
-const user_id = "abc";
+import { JwtPayload, JwtPayloadData } from 'src/auth/decorator/jwt-payload';
 
 @Controller('users')
 export class UsersController {
     constructor(
         private readonly usersAggregateService: UsersActionService,
         private readonly userInfoService: UsersService,
-        private readonly usersAccountService: UsersAccountService
     ) { }
 
     @Get(':user_id')
-    async getUser() {
-        await this.userInfoService.getDetail(user_id);
+    async getUser(@JwtPayload() payload: JwtPayloadData) {
+        const email = payload.email;
+        const id = await this.userInfoService.getUserIdFromEmail(email);
+        return await this.userInfoService.getDetail(id);
     }
 
     // // Todo: Test route 
@@ -44,67 +40,93 @@ export class UsersController {
     // Personal Routes
 
     @Get('/movie/:movie_id')
-    async getUserMovies(@Param() param: MovieIdParam) {
-        await this.usersAggregateService.getMoviesInfoInUser(user_id, param.movie_id);
+    async getUserMovies(@JwtPayload() payload: JwtPayloadData, @Param() param: MovieIdParam) {
+        const email = payload.email;
+        const id = await this.userInfoService.getUserIdFromEmail(email);
+        await this.usersAggregateService.getMoviesInfoInUser(id, param.movie_id);
     }
 
     @Post('rating/add/:movie_id')
-    async addRating(@Param() param: MovieIdParam, @Body() body: MovieRatingBody) {
-        await this.usersAggregateService.addRating(user_id, param.movie_id, body.rating);
+    async addRating(@JwtPayload() payload: JwtPayloadData, @Param() param: MovieIdParam, @Body() body: MovieRatingBody) {
+        const email = payload.email;
+        const id = await this.userInfoService.getUserIdFromEmail(email);
+        await this.usersAggregateService.addRating(id, param.movie_id, body.rating);
     }
 
     @Post('rating/remove/:movie_id')
-    async removeRating(@Param() param: MovieIdParam) {
+    async removeRating(@JwtPayload() payload: JwtPayloadData, @Param() param: MovieIdParam) {
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
         await this.usersAggregateService.removeRating(user_id, param.movie_id);
     }
 
     @Get('rating')
-    async getRatingMovies() {
+    async getRatingMovies(@JwtPayload() payload: JwtPayloadData) {
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
         await this.usersAggregateService.getRatingMovies(user_id);
     }
 
     @Post('favorite/add/:movie_id')
-    async addFavorite(@Param() param: MovieIdParam) {
+    async addFavorite(@JwtPayload() payload: JwtPayloadData, @Param() param: MovieIdParam) {
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
         await this.usersAggregateService.addFavorite(user_id, param.movie_id);
     }
 
     @Post('favorite/remove/:movie_id')
-    async removeFavorite(@Param() param: MovieIdParam) {
+    async removeFavorite(@JwtPayload() payload: JwtPayloadData, @Param() param: MovieIdParam) {
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
         await this.usersAggregateService.removeFavorite(user_id, param.movie_id);
     }
 
     @Get('favorite')
-    async getFavoriteMovies() {
+    async getFavoriteMovies(@JwtPayload() payload: JwtPayloadData) {
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
         await this.usersAggregateService.getFavoriteMovies(user_id);
     }
 
     @Post('watchlist/add/:movie_id')
-    async addWatchlist(@Param() param: MovieIdParam) {
+    async addWatchlist(@JwtPayload() payload: JwtPayloadData, @Param() param: MovieIdParam) {
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
         await this.usersAggregateService.addWatchlist(user_id, param.movie_id);
     }
 
     @Post('watchlist/remove/:movie_id')
-    async removeWatchlist(@Param() param: MovieIdParam) {
+    async removeWatchlist(@JwtPayload() payload: JwtPayloadData, @Param() param: MovieIdParam) {
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
         await this.usersAggregateService.removeWatchlist(user_id, param.movie_id);
     }
 
     @Get('watchlist')
-    async getWatchlistMovies() {
+    async getWatchlistMovies(@JwtPayload() payload: JwtPayloadData) {
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
         await this.usersAggregateService.getWatchlistMovies(user_id);
     }
 
     @Post('history/add/:movie_id')
-    async addHistory(@Param() param: MovieIdParam) {
+    async addHistory(@JwtPayload() payload: JwtPayloadData, @Param() param: MovieIdParam) {
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
         await this.usersAggregateService.addHistory(user_id, param.movie_id);
     }
 
     @Post('history/remove/:movie_id')
-    async removeHistory(@Param() param: MovieIdParam) {
+    async removeHistory(@JwtPayload() payload: JwtPayloadData, @Param() param: MovieIdParam) {
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
         await this.usersAggregateService.removeHistory(user_id, param.movie_id);
     }
 
     @Get('history')
-    async getHistoryMovies() {
+    async getHistoryMovies(@JwtPayload() payload: JwtPayloadData) {
+        const email = payload.email;
+        const user_id = await this.userInfoService.getUserIdFromEmail(email);
         await this.usersAggregateService.getHistoryMovies(user_id);
     }
 }
