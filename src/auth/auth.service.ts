@@ -76,7 +76,7 @@ export class AuthService {
       //xtodo: get user from database 
       const jwt = this.jwtService.sign({ email: user.email, firstName: user.displayName, lastName: '' });
 
-      res = { email: user.email, token: { accessToken: jwt, refressToken: '' }, firstName: user.displayName, lastName: '' };
+      res = { email: user.email, token: { accessToken: jwt, refreshToken: jwt }, firstName: user.displayName, lastName: '' };
     } catch (error) {
       const errorMessage = error.message;
       res = { message: errorMessage };
@@ -111,7 +111,7 @@ export class AuthService {
       console.log('jwt send', jwt);
       const res = {
         email: decodedToken.email,
-        token: { accessToken: jwt, refressToken: '' },
+        token: { accessToken: jwt, refreshToken: jwt },
         firstName: decodedToken.name, lastName: ''
       }
 
@@ -146,7 +146,7 @@ export class AuthService {
       this.firebaseAuthService.updateUser(user, userData);
 
       const jwt = this.jwtService.sign({ email: user.email, firstName: userData.firstName, lastName: userData.lastName });
-      const res = { email: user.email, token: { accessToken: jwt, refressToken: '' }, firstName: userData.firstName, lastName: userData.lastName };
+      const res = { email: user.email, token: { accessToken: jwt, refreshToken: jwt }, firstName: userData.firstName, lastName: userData.lastName };
       this.firebaseAuthService.sendVerifyAccountEmail(user.email);
       return res;
     } catch (error) {
