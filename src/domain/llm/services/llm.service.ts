@@ -68,12 +68,12 @@ export class LlmService {
 
     async llmNavigate(body: NavigateBody): Promise<{ path: string }> {
         try {
-            const response = await firstValueFrom(this.httpService.post(navigateUrl, null, {
+            const response = await this.httpService.axiosRef.post(navigateUrl, null, {
                 params: {
                     llm_api_key: GEMINI_API_KEY,
                     query: body.query,
                 }
-            }));
+            });
             const route_presenter = response.data.data as RoutePresenter;
             const url = await this.llmRouteHandlerService.routeToURL(route_presenter);
             return { path: url };
